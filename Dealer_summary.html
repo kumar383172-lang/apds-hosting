@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Monthly Summary | Smart PDS</title>
+<link rel="stylesheet" href="Dealer_Style.css">
+<link rel="icon" type="png" href="logo.png">
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<style>
+.chart-container {
+  max-width: 600px;
+  margin: 20px auto;
+}
+
+.pie-wrapper {
+  width: 350px;
+  height: 350px;
+  margin: 20px auto;
+}
+
+.compare-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+
+.compare-controls select {
+  margin: 5px;
+  padding: 6px;
+}
+</style>
+
+</head>
+
+<body>
+
+<!-- HEADER -->
+<header class="header">
+  <div class="header-inner">
+    <img src="logo.png" class="header-logo">
+    <div class="header-text">
+      <h1>Advanced Public Distribution System</h1>
+      <h2>Dealer Dashboard</h2>
+      <p>Monthly Distribution Summary</p>
+    </div>
+  </div>
+</header>
+
+<!-- TITLE -->
+<section class="section card">
+  <h3 class="section-title">Monthly Summary</h3>
+  <p>Overview of ration distribution for the selected month.</p>
+</section>
+
+<!-- MAIN SELECT -->
+<section class="section card">
+  <h3>Select Period</h3>
+
+  <div class="form-group">
+    <label>Year</label>
+    <select id="yearSelect">
+      <option>2024</option>
+      <option>2025</option>
+      <option>2026</option>
+    </select>
+
+    <label>Month</label>
+    <select id="monthSelect">
+      <option>January</option>
+      <option>February</option>
+      <option>March</option>
+      <option>April</option>
+      <option>May</option>
+      <option>June</option>
+      <option>July</option>
+      <option>August</option>
+      <option>September</option>
+      <option>October</option>
+      <option>November</option>
+      <option>December</option>
+    </select>
+  </div>
+</section>
+
+<!-- TABLE -->
+<section class="section card">
+  <h3>Distribution Details</h3>
+
+  <table class="stock-table">
+    <thead>
+      <tr>
+        <th>Commodity</th>
+        <th>Total Received</th>
+        <th>Total Distributed</th>
+        <th>Remaining</th>
+      </tr>
+    </thead>
+    <tbody id="tableBody"></tbody>
+  </table>
+</section>
+
+<!-- SUMMARY -->
+<section class="section card card-secondary">
+  <h3>Total Distribution</h3>
+  <p id="totalFamilies"></p>
+  <p id="totalRice"></p>
+  <p id="totalWheat"></p>
+  <p id="totalOther"></p>
+</section>
+
+<!-- ANALYTICS -->
+<section class="section card">
+  <h3>Distribution Analytics</h3>
+
+  <div class="chart-container">
+    <canvas id="barChart"></canvas>
+  </div>
+
+  <div class="pie-wrapper">
+    <canvas id="pieChart"></canvas>
+  </div>
+</section>
+
+<!-- CUSTOM COMPARISON CONTROLS -->
+<section class="section card">
+  <h3>Custom Comparison</h3>
+
+  <div class="compare-controls">
+
+    <div>
+      <label>Year</label>
+      <select id="year1">
+        <option>2024</option>
+        <option>2025</option>
+        <option>2026</option>
+      </select>
+
+      <label>Month</label>
+      <select id="month1">
+        <option>January</option>
+        <option>February</option>
+        <option>March</option>
+        <option>April</option>
+        <option>May</option>
+        <option>June</option>
+        <option>July</option>
+        <option>August</option>
+        <option>September</option>
+        <option>October</option>
+        <option>November</option>
+        <option>December</option>
+      </select>
+    </div>
+
+    <span><b>VS</b></span>
+
+    <div>
+      <label>Year</label>
+      <select id="year2">
+        <option>2024</option>
+        <option>2025</option>
+        <option>2026</option>
+      </select>
+
+      <label>Month</label>
+      <select id="month2">
+        <option>January</option>
+        <option>February</option>
+        <option>March</option>
+        <option>April</option>
+        <option>May</option>
+        <option>June</option>
+        <option>July</option>
+        <option>August</option>
+        <option>September</option>
+        <option>October</option>
+        <option>November</option>
+        <option>December</option>
+      </select>
+    </div>
+
+  </div>
+</section>
+
+<!-- COMPARISON CHART -->
+<section class="section card">
+  <h3>Month Comparison</h3>
+
+  <div class="chart-container">
+    <canvas id="compareChart"></canvas>
+  </div>
+</section>
+
+<!-- BACK -->
+<section class="section card utility-section">
+  <a href="dealer_index.html">
+    <button class="secondary-btn">Back to Dashboard</button>
+  </a>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+© 2026 Smart PDS Portal | Dealer Module  
+<br>Contact | Help | Support
+</footer>
+
+<!-- SCRIPT -->
+<script>
+
+let barChart, pieChart, compareChart;
+
+async function updateTable() {
+
+  const year = document.getElementById("yearSelect").value;
+  const month = document.getElementById("monthSelect").value;
+  const tableBody = document.getElementById("tableBody");
+
+  tableBody.innerHTML = "";
+
+  const response = await fetch("data.json");
+  const data = await response.json();
+
+  const monthData = data[year]?.[month];
+
+  if (!monthData) return;
+
+  let labels = [];
+  let distributedData = [];
+
+  let totalRice = 0;
+  let totalWheat = 0;
+  let totalOther = 0;
+  let families = Math.floor(150 + Math.random() * 50);
+
+  Object.keys(monthData).forEach(item => {
+
+    let received = monthData[item];
+    let distributed = Math.floor(received * 0.8);
+    let remaining = received - distributed;
+
+    labels.push(item);
+    distributedData.push(distributed);
+
+    if (item === "Rice") totalRice = distributed;
+    else if (item === "Wheat") totalWheat = distributed;
+    else totalOther += distributed;
+
+    let tr = document.createElement("tr");
+
+    tr.innerHTML = `
+      <td>${item}</td>
+      <td>${received}</td>
+      <td>${distributed}</td>
+      <td>${remaining}</td>
+    `;
+
+    tableBody.appendChild(tr);
+
+  });
+
+  document.getElementById("totalFamilies").innerHTML = "<b>Total Families Served:</b> " + families;
+  document.getElementById("totalRice").innerHTML = "<b>Total Rice Distributed:</b> " + totalRice + " kg";
+  document.getElementById("totalWheat").innerHTML = "<b>Total Wheat Distributed:</b> " + totalWheat + " kg";
+  document.getElementById("totalOther").innerHTML = "<b>Total Other Commodities:</b> " + totalOther + " kg";
+
+  createCharts(labels, distributedData, totalRice, totalWheat, totalOther);
+  createComparisonChart(data, labels);
+}
+
+function createCharts(labels, data, rice, wheat, other) {
+
+  if (barChart) barChart.destroy();
+  if (pieChart) pieChart.destroy();
+
+  barChart = new Chart(document.getElementById("barChart"), {
+    type: "bar",
+    data: {
+      labels: labels,
+      datasets: [{
+        label: "Distributed",
+        data: data,
+        backgroundColor: "#1B4332"
+      }]
+    }
+  });
+
+  pieChart = new Chart(document.getElementById("pieChart"), {
+    type: "pie",
+    data: {
+      labels: ["Rice", "Wheat", "Other"],
+      datasets: [{
+        data: [rice, wheat, other],
+        backgroundColor: ["#8848df", "#F5DEB3", "#40916C"],
+        borderColor: "#fff",
+        borderWidth: 2
+      }]
+    },
+    options: {
+      maintainAspectRatio: false
+    }
+  });
+}
+
+function createComparisonChart(data, labels) {
+
+  if (compareChart) compareChart.destroy();
+
+  const y1 = document.getElementById("year1").value;
+  const m1 = document.getElementById("month1").value;
+
+  const y2 = document.getElementById("year2").value;
+  const m2 = document.getElementById("month2").value;
+
+  const d1 = data[y1]?.[m1];
+  const d2 = data[y2]?.[m2];
+
+  if (!d1 || !d2) return;
+
+  let v1 = [], v2 = [];
+
+  labels.forEach(item => {
+    v1.push(Math.floor(d1[item] * 0.8));
+    v2.push(Math.floor(d2[item] * 0.8));
+  });
+
+  compareChart = new Chart(document.getElementById("compareChart"), {
+    type: "bar",
+    data: {
+      labels: labels,
+      datasets: [
+        { label: m1 + " " + y1, data: v1, backgroundColor: "#1B4332" },
+        { label: m2 + " " + y2, data: v2, backgroundColor: "#74C69D" }
+      ]
+    },
+    options: {
+      maintainAspectRatio: false
+    }
+  });
+}
+
+document.querySelectorAll("select").forEach(el =>
+  el.addEventListener("change", updateTable)
+);
+
+updateTable();
+
+</script>
+
+</body>
+</html>

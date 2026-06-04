@@ -1,0 +1,46 @@
+{
+  "2024": {
+    "January": { "Rice": 1200, "Wheat": 900, "Sugar": 400, "Kerosene": 300 },
+    "February": { "Rice": 1300, "Wheat": 850, "Sugar": 450, "Kerosene": 320 },
+    "March": { "Rice": 1250, "Wheat": 870, "Sugar": 420, "Kerosene": 310 },
+    "April": { "Rice": 1400, "Wheat": 950, "Sugar": 480, "Kerosene": 330 },
+    "May": { "Rice": 1350, "Wheat": 920, "Sugar": 460, "Kerosene": 325 },
+    "June": { "Rice": 1450, "Wheat": 980, "Sugar": 500, "Kerosene": 340 },
+    "July": { "Rice": 1500, "Wheat": 1000, "Sugar": 520, "Kerosene": 350 },
+    "August": { "Rice": 1480, "Wheat": 990, "Sugar": 510, "Kerosene": 345 },
+    "September": { "Rice": 1420, "Wheat": 960, "Sugar": 490, "Kerosene": 335 },
+    "October": { "Rice": 1550, "Wheat": 1050, "Sugar": 540, "Kerosene": 360 },
+    "November": { "Rice": 1600, "Wheat": 1100, "Sugar": 560, "Kerosene": 370 },
+    "December": { "Rice": 1700, "Wheat": 1150, "Sugar": 600, "Kerosene": 380 }
+  },
+
+  "2025": {
+    "January": { "Rice": 1500, "Wheat": 1000, "Sugar": 500, "Kerosene": 350 },
+    "February": { "Rice": 1550, "Wheat": 1020, "Sugar": 520, "Kerosene": 360 },
+    "March": { "Rice": 1600, "Wheat": 1050, "Sugar": 540, "Kerosene": 370 },
+    "April": { "Rice": 1650, "Wheat": 1080, "Sugar": 560, "Kerosene": 380 },
+    "May": { "Rice": 1700, "Wheat": 1100, "Sugar": 580, "Kerosene": 390 },
+    "June": { "Rice": 1750, "Wheat": 1150, "Sugar": 600, "Kerosene": 400 },
+    "July": { "Rice": 1800, "Wheat": 1200, "Sugar": 620, "Kerosene": 410 },
+    "August": { "Rice": 1780, "Wheat": 1180, "Sugar": 610, "Kerosene": 405 },
+    "September": { "Rice": 1720, "Wheat": 1120, "Sugar": 590, "Kerosene": 395 },
+    "October": { "Rice": 1850, "Wheat": 1250, "Sugar": 650, "Kerosene": 420 },
+    "November": { "Rice": 1900, "Wheat": 1300, "Sugar": 670, "Kerosene": 430 },
+    "December": { "Rice": 2000, "Wheat": 1350, "Sugar": 700, "Kerosene": 450 }
+  },
+
+  "2026": {
+    "January": { "Rice": 1600, "Wheat": 1100, "Sugar": 550, "Kerosene": 380 },
+    "February": { "Rice": 1650, "Wheat": 1120, "Sugar": 570, "Kerosene": 390 },
+    "March": { "Rice": 1700, "Wheat": 1150, "Sugar": 600, "Kerosene": 400 },
+    "April": { "Rice": 1750, "Wheat": 1180, "Sugar": 620, "Kerosene": 410 },
+    "May": { "Rice": 1800, "Wheat": 1200, "Sugar": 650, "Kerosene": 420 },
+    "June": { "Rice": 1850, "Wheat": 1250, "Sugar": 670, "Kerosene": 430 },
+    "July": { "Rice": 1900, "Wheat": 1300, "Sugar": 700, "Kerosene": 450 },
+    "August": { "Rice": 1880, "Wheat": 1280, "Sugar": 690, "Kerosene": 445 },
+    "September": { "Rice": 1820, "Wheat": 1220, "Sugar": 660, "Kerosene": 430 },
+    "October": { "Rice": 1950, "Wheat": 1350, "Sugar": 720, "Kerosene": 460 },
+    "November": { "Rice": 2000, "Wheat": 1400, "Sugar": 750, "Kerosene": 480 },
+    "December": { "Rice": 2100, "Wheat": 1450, "Sugar": 780, "Kerosene": 500 }
+  }
+}

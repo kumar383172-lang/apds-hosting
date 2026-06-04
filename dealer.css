@@ -1,0 +1,50 @@
+*{
+    padding:0;
+}
+header{
+    width: 100%;
+    color:white;
+    background-color: #064529;
+    text-align: center;
+    padding:20px;
+    margin:0;
+
+    
+}
+.card{
+    width: 80%;
+    border: 1px solid black;
+    margin:20px auto;
+    padding-left: 10px;
+    border-radius:10px;
+   
+
+}
+.card:hover{
+    box-shadow: 2px 4px 6px black;
+    transition: 0.5s;
+}
+.Info{
+    width:90%;
+    border: 2px solid black;
+    margin:20px auto;
+    padding-left: 10px;
+    border-radius:10px;
+    background-color: bisque;
+}
+.Info:hover{
+    box-shadow: 2px 4px 6px black;
+    transition: 0.5s;
+}
+.footer{
+    padding:30px;
+    margin:auto;
+    background-color:orange;
+    text-align:center;
+}
+
+.footer pre{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}

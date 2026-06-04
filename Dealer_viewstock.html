@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Stock Status | Smart PDS</title>
+<link rel="stylesheet" href="Dealer_Style.css">
+<link rel="icon" type="png" href="logo.png">
+</head>
+
+<body>
+
+<!-- HEADER -->
+<header class="header">
+<div class="header-inner">
+
+<img src="logo.png" alt="Smart PDS Logo" class="header-logo">
+
+<div class="header-text">
+<h1>Advanced Public Distribution System</h1>
+<h2>Dealer Dashboard</h2>
+<p>FPS Stock Status</p>
+</div>
+
+</div>
+</header>
+
+
+<!-- PAGE TITLE -->
+<section class="section card">
+<h3 class="section-title">Current Stock Status</h3>
+<p>View the available stock in the Fair Price Shop.</p>
+</section>
+
+
+<!-- STOCK + ALERT LAYOUT -->
+<section class="section stock-layout">
+
+  <!-- LEFT SIDE (TABLE) -->
+  <div class="stock-left card">
+
+    <h3>Available Commodities</h3>
+
+    <table class="stock-table">
+
+      <thead>
+        <tr>
+          <th>Commodity</th>
+          <th>Total Received (kg)</th>
+          <th>Distributed (kg)</th>
+          <th>Remaining (kg)</th>
+        </tr>
+      </thead>
+
+      <tbody id="stockTableBody">
+        <!-- JS WILL FILL -->
+      </tbody>
+
+    </table>
+
+  </div>
+
+
+  <!-- RIGHT SIDE (ALERT PANEL) -->
+  <div class="stock-right">
+
+    <div class="alert-panel">
+      <h3>🚨 Live Stock Alerts</h3>
+      <ul id="alertList"></ul>
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- BACK BUTTON -->
+<section class="section card utility-section">
+
+<a href="trial1.html">
+<button class="secondary-btn">Back to Dashboard</button>
+</a>
+
+</section>
+
+
+<!-- FOOTER -->
+<footer class="footer">
+© 2026 Smart PDS Portal | Dealer Module  
+<br>Contact | Help | Support
+</footer>
+
+
+<!-- JAVASCRIPT -->
+<script>
+
+// 🔹 SAMPLE STOCK DATA
+const stockData = {
+  Rice: 1200,
+  Wheat: 900,
+  Sugar: 400,
+  Kerosene: 300
+};
+
+const tableBody = document.getElementById("stockTableBody");
+const alertList = document.getElementById("alertList");
+
+// 🔹 GENERATE TABLE + ALERTS
+Object.keys(stockData).forEach(item => {
+
+  let received = stockData[item];
+
+  let distributed = Math.floor(received * (0.5 + Math.random() * 0.3));
+  let remaining = received - distributed;
+
+  // TABLE ROW
+  let tr = document.createElement("tr");
+  tr.innerHTML = `
+    <td>${item}</td>
+    <td>${received}</td>
+    <td>${distributed}</td>
+    <td>${remaining}</td>
+  `;
+  tableBody.appendChild(tr);
+
+  // ALERT SYSTEM
+  let li = document.createElement("li");
+
+  if (remaining < 100) {
+    li.innerHTML = `⚠ ${item} stock is <b>CRITICALLY LOW</b>`;
+    li.classList.add("alert-low");
+  }
+  else if (remaining < 250) {
+    li.innerHTML = `⚠ ${item} stock is getting low`;
+    li.classList.add("alert-warning");
+  }
+  else {
+    li.innerHTML = `✔ ${item} stock is sufficient`;
+    li.classList.add("alert-ok");
+  }
+
+  alertList.appendChild(li);
+
+});
+
+</script>
+
+</body>
+</html>
+

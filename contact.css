@@ -1,0 +1,110 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial;
+  background: #f4f6f9;
+}
+
+/* HEADER */
+.header {
+  background: #1B4332;
+  color: white;
+  text-align: center;
+  padding: 20px;
+}
+
+/* CONTAINER */
+.container {
+  width: 90%;
+  max-width: 1000px;
+  margin: 30px auto;
+}
+
+/* WRAPPER */
+.contact-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+/* INFO BOX */
+.contact-info {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.contact-info h2 {
+  margin-bottom: 15px;
+}
+
+/* FORM BOX */
+.contact-form {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.contact-form h2 {
+  margin-bottom: 15px;
+}
+
+/* INPUT */
+input, select, textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+/* TEXTAREA */
+textarea {
+  height: 100px;
+  resize: none;
+}
+
+/* BUTTON */
+button {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 5px;
+  border: none;
+  background: #1B4332;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #155a8a;
+}
+
+/* FOOTER */
+.footer {
+  text-align: center;
+  padding: 15px;
+  background: #ddd;
+}
+
+/* FOOTER */
+.footer1 {
+    background: linear-gradient(to right, #e2d966, #dacb91);
+    padding: 30px 0;
+}
+
+.footer-grid1 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+
+/* MOBILE */
+@media(max-width:768px){
+  .contact-wrapper {
+    grid-template-columns: 1fr;
+  }
+}

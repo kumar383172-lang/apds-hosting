@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Start Distribution | Smart PDS</title>
+<link rel="icon" type="png" href="logo.png">
+<link rel="stylesheet" href="Dealer_Style.css">
+</head>
+
+<body>
+
+<!-- HEADER -->
+<header class="header">
+<div class="header-inner">
+
+<img src="logo.png" class="header-logo">
+
+<div class="header-text">
+<h1>Advanced Public Distribution System</h1>
+<h2>Dealer Dashboard</h2>
+<p>Start Ration Distribution</p>
+</div>
+
+</div>
+</header>
+
+<!-- TITLE -->
+<section class="section card">
+<h3 class="section-title">Ration Distribution</h3>
+<p>Select a beneficiary and confirm ration distribution.</p>
+</section>
+
+<!-- IMAGE -->
+<section class="section">
+  <div class="distribution-image">
+    <img src="Ration-Distribution.jpg">
+  </div>
+</section>
+
+<!-- BENEFICIARY -->
+<section class="section card">
+
+<h3>Beneficiary Details</h3>
+
+<div class="form-group">
+<label>Ration Card Number</label>
+<input type="text" id="cardNumber" placeholder="Enter Ration Card Number">
+</div>
+
+<div class="form-group">
+<label>Beneficiary Name</label>
+<input type="text" id="beneficiaryName" readonly>
+</div>
+
+<div class="form-group">
+<label>Family Members</label>
+<input type="number" id="familyMembers" readonly>
+</div>
+
+</section>
+
+<!-- RATION -->
+<section class="section card">
+
+<h3>Ration Details</h3>
+
+<div class="form-group">
+<label>Rice Quantity (kg)</label>
+<input type="number" id="riceQty">
+<small id="riceLimit"></small>
+</div>
+
+<div class="form-group">
+<label>Wheat Quantity (kg)</label>
+<input type="number" id="wheatQty">
+<small id="wheatLimit"></small>
+</div>
+
+<div class="form-group">
+<label>Other Items</label>
+<input type="text" id="otherItems" placeholder="Optional">
+</div>
+
+</section>
+
+<!-- CONFIRM -->
+<section class="section card utility-section">
+<button class="action-btn" id="confirmBtn">Confirm Distribution</button>
+</section>
+
+<!-- BACK -->
+<section class="section card utility-section">
+<a href="trial1.html">
+<button class="secondary-btn">Back to Dashboard</button>
+</a>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+© 2026 Smart PDS Portal | Dealer Module  
+<br>Contact | Help | Support
+</footer>
+
+<script>
+
+// DATA
+let beneficiaryData = {};
+
+fetch("beneficiaries.json")
+.then(res => res.json())
+.then(data => {
+  beneficiaryData = data;
+});
+
+// CALCULATE RATION
+function calculateRation(members) {
+
+  const ricePerPerson =4;
+  const wheatPerPerson = 3;
+
+  const maxRice = members * ricePerPerson;
+  const maxWheat = members * wheatPerPerson;
+
+  document.getElementById("riceQty").value = maxRice;
+  document.getElementById("wheatQty").value = maxWheat;
+
+  document.getElementById("riceQty").max = maxRice;
+  document.getElementById("wheatQty").max = maxWheat;
+
+  document.getElementById("riceLimit").innerText = "Max allowed: " + maxRice + " kg";
+  document.getElementById("wheatLimit").innerText = "Max allowed: " + maxWheat + " kg";
+}
+
+// AUTO FILL
+document.getElementById("cardNumber").addEventListener("input", function() {
+
+  const card = this.value.trim().toUpperCase();
+
+  if (beneficiaryData[card]) {
+
+    const data = beneficiaryData[card];
+
+    document.getElementById("beneficiaryName").value = data.name;
+    document.getElementById("familyMembers").value = data.members;
+
+    calculateRation(data.members);
+
+  } else {
+
+    document.getElementById("beneficiaryName").value = "";
+    document.getElementById("familyMembers").value = "";
+    document.getElementById("riceQty").value = "";
+    document.getElementById("wheatQty").value = "";
+
+  }
+
+});
+
+// RESTRICT INPUT
+function restrictInput(id) {
+
+  const input = document.getElementById(id);
+
+  input.addEventListener("input", function () {
+
+    const max = parseInt(this.max);
+
+    if (parseInt(this.value) > max) {
+      this.value = max;
+    }
+
+    if (this.value < 0) {
+      this.value = 0;
+    }
+
+  });
+}
+
+restrictInput("riceQty");
+restrictInput("wheatQty");
+
+// CONFIRM BUTTON
+document.getElementById("confirmBtn").addEventListener("click", function() {
+
+  const card = document.getElementById("cardNumber").value;
+
+  if (card === "") {
+    alert("Enter Ration Card Number");
+    return;
+  }
+
+  if (!beneficiaryData[card.toUpperCase()]) {
+    alert("Invalid Card Number");
+    return;
+  }
+
+  const popup = document.createElement("div");
+  popup.innerText = "✅ Distribution Confirmed!";
+  popup.style.position = "fixed";
+  popup.style.top = "20px";
+  popup.style.right = "20px";
+  popup.style.background = "#1B4332";
+  popup.style.color = "white";
+  popup.style.padding = "12px 20px";
+  popup.style.borderRadius = "5px";
+
+  document.body.appendChild(popup);
+
+  setTimeout(() => popup.remove(), 2000);
+
+});
+
+</script>
+
+</body>
+</html>

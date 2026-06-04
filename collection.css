@@ -1,0 +1,48 @@
+*{
+    margin:0;
+    padding:0;
+}
+
+
+.dashboard{
+    color:white;
+    background-color: #064529;
+    text-align: center;
+    justify-content: center;
+    height: 100px;
+    width: 100%;
+    padding:20px;
+}
+
+table{
+    width: 102%;
+    border-collapse: collapse;
+    padding: 5px;
+    margin-top:50px;
+
+   
+}
+.container{
+    width: 100%;
+
+}
+th,td{
+    
+    border:1px solid black;
+    padding:10px;
+    text-align:center;
+}
+.month button{
+    margin: 5px;
+    padding:10px;
+    cursor:pointer;
+}
+.footer{
+    background-color:orange;
+    color:white;
+    text-align: center;
+    padding: 20px;
+    margin-top:50px;
+    
+    
+}

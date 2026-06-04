@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel</title>
+
+    <!-- <link rel="stylesheet" href="adminstyle.css"> -->
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" >
+     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+
+        var data = google.visualization.arrayToDataTable([
+          ['Complete', 'no. of people'],
+          ['pending',     11],
+          ['resolved',      8],
+         
+        ]);
+
+        var options = {
+          title: 'complaints soln status'
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+
+        chart.draw(data, options);
+      }
+    </script>
+
+
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawVisualization);
+
+      function drawVisualization() {
+        // Some raw data (not necessarily accurate)
+        var data = google.visualization.arrayToDataTable([
+          ['Month', 'rice', 'wheat', 'gram', 'Pulses', 'oil', 'sugar'],
+          ['2025/10',  165,      938,         522,             998,           450,      614.6],
+          ['2025/11',  135,      1120,        599,             1268,          288,      682],
+          ['2025/12',  157,      1167,        587,             807,           397,      623],
+          ['2026/01',  139,      1110,        615,             968,           215,      609.4],
+          ['2026/02',  136,      691,         629,             1026,          366,      569.6]
+        ]);
+
+        var options = {
+          title : 'stock-dist overview(5 months)',
+          vAxis: {title: 'tonnes'},
+          hAxis: {title: 'Month'},
+          seriesType: 'bars',
+          series: {5: {type: 'line'}}
+        };
+
+        var chart = new google.visualization.ComboChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+      }
+    </script>
+
+
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+
+        var data = google.visualization.arrayToDataTable([
+          ['grains', 'tones'],
+          ['rice',     21],
+          ['wheat',      22],
+          ['gram',  16],
+          ['Pulses', 18],
+          ['oil',    7]
+        ]);
+
+        var options = {
+          title: 'grain stock this month'
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('piechart2'));
+
+        chart.draw(data, options);
+      }
+    </script>
+    <style>
+    *{margin: 0; 
+    padding: 0;
+    text-decoration: none;}
+
+header{
+    margin-top: 1px;
+    background-color:#1B4332;
+    display: flex;
+    height: 80px;
+    width: 100%;
+    box-shadow: 4px 4px 4px #dcdada;
+    
+    position: fixed;
+    z-index: 1030;
+   
+}
+
+.buttons{
+    
+   
+    margin-left: 75%;
+    
+}
+.buttons ul {
+    display: flex;
+    margin-top: 20px;
+    gap: 20px;
+    margin-left: auto;
+    list-style: none;
+    font-size: 20px;
+
+    
+}
+.buttons ul li a{
+    
+    color: white;
+    font-weight: bold;
+    transition: background-color 0.5s ease;
+}
+.buttons ul li a:hover{
+    background-color: orange;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+.imagesbar{
+    display : flex;
+    box-shadow: 0px 5px 4px rgb(1, 1, 1);
+z-index:1000;}
+
+
+.mybtn{
+    position: fixed;
+    z-index: 1000;
+   margin-top: 10px;
+    margin-left: 94%;
+    border-radius: 50%;
+    transition: transform 0.5s ease;
+}
+.mybtn:hover{
+    transform: scale(1.3);
+   
+   
+}
+.container{
+    z-index: 900;
+    margin-top: 4px;
+    display: flex;
+    width: 100%;
+    height: 80vh;
+    box-shadow: 3px 2px 4px #e2e1e1;
+}
+
+.sidebar{
+    background-color: #1B4332;
+    width: 15%;
+    height: 80vh;
+    margin-left:0;
+    box-shadow:2px 0px 3px #1B4332;
+    
+}
+.sidebar ul{
+    text-decoration: none;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 15px;
+    padding-top: 40px;
+    gap: 40px;
+}
+
+
+.sidebar ul li a{
+    
+    color: rgb(255, 255, 255);
+    font-size: 25px;
+    font-weight: bold;
+    transition: transform 0.5s   ;
+   
+}
+.sidebar ul li a:hover{
+    color:#0019f6;
+    background-color: orange;
+    padding: 5px 10px;
+    border-radius: 5px;
+    
+}
+.sidebar h2{
+    color: rgb(255, 255, 255);
+    font-size: 30px;
+    font-weight: bold;
+    margin-top: 20px;
+    text-align: center;
+    
+    
+    
+}
+
+.profile{
+    background-color: #F8F9FA;
+    margin-left:2px;
+    width: 85%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    
+    
+    
+}
+.profile ul li {
+    list-style: none;
+    color: black;
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 15px;
+    
+    
+}
+
+.graphstable{
+    z-index: 800;
+    background-color: #2D6A4F;
+    width: 100%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    height: 400px;
+    margin-top: 3px;
+    box-shadow: 3px 2px 4px #124b48;
+    
+}
+.graphstable p{
+    font-size: 25px;
+    font-weight: bold;
+    color: #ffffff;
+    margin-top: 3px;
+   
+}
+.graphs{
+
+    display: flex;
+    gap: 10px;
+    
+}
+
+.footer-content{
+    z-index: 900;
+    background-color: #E67E22;
+    color: rgb(2, 2, 2);
+    text-align: center;
+    padding: 10px;
+    font-size: 14px;
+    font-weight: bold;
+    margin-top: 3px;
+}
+</style>
+
+</head>
+<body>
+    <header>
+      <!-- Header+Navigation -->
+        <div class="logo"><img src="logo.png" alt="Logo" style="height: 60px; width: 80px; margin:10px ;border-radius: 40%; "></div>
+        <div class="buttons">
+            <ul>
+                <li><a href="Home.html"><i class="home"></i> Home</a></li>
+                <li><a href="aboutus.html"><i class="us"></i> About us</a></li>
+                <li><a href="#"><i class="set"></i> Settings</a></li>
+            </ul>
+        </div>
+
+    </header>
+
+   
+    <!--introducory image -->  
+    <nav ><div class="imagesbar"><img src="image.png" alt="Image 2" style="height: 450px; width: 100%; margin-top: 90px;">
+      </div></nav>
+    
+   
+   <div class="mybtn"><a href="kisanportal.html" target="main"><img  src="kisanportal.png" alt="Kisan Portal" height="80" width="80"; style="border-radius: 50%;border:2px solid #ff0000;"></a></div>
+    
+    <!--side navigation panel and main content -->
+    <div class="container">
+
+
+      <!--side navigation panel-->
+    <aside class="sidebar">
+      <h2>Quick Links</h2>
+        <ul>
+            <li><a href="distributors.html" target="_self">Distributors</a></li>
+            <li><a href="warehouses.html" target="_self">Ware-houses</a></li>
+            <li><a href="stockdetails.html" target="_self">Stock-details</a></li>
+            <li><a href="#">Complaints</a></li>
+            <li><a href="beneficiaries.html" target="_self">Benefeciaries</a></li>
+            <li><a href="#">Logout</a></li>
+        </ul>
+    </aside>
+
+      <!--main content includes admin details-->
+    <section class="profile">
+        <div>
+            <div class="profile-pic"><img src="profile.png" alt="Profile Picture" style="height: 300px; width: 300px; border-radius: 50%; margin-left: 10px;margin-top:20px ;border: 4px solid #000000;"></div>
+            <div class="profile-info">
+                <ul>
+                   <li>Name: Abhilas sharma</li>
+                    <li>Role: Admin</li>
+                    <li>Email: abhilas.sharma@example.com</li>
+                    <li>Phone: (123) 456-7890</li>
+                    <li>Area: Muzaffarpur</li>
+                    <li>Address: 123 Main St, Muzaffarpur, Bihar 842001</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    </div>
+    <img src="yojna.png" alt="Image 1" style="height: 450px; width: 100%; margin-top: 10px;z-index: 900;box-shadow: 2px -2px 4px rgba(216, 212, 212, 0.1);padding-bottom: 2px;margin-bottom: 2px;box-shadow: 0px 2px 4px rgba(163, 158, 158, 0.1);">
+    <!--graphs and tables -->
+     <article class="graphstable">
+        <p >Quick statistics at a glance </p>
+        <div class="graphs">
+            <div id="piechart" style="margin-left:20px; width: 400px; height: 300px; border: 2px solid #000000;"></div>
+             <div id="chart_div" style="width: 600px; height: 300px;border: 2px solid #000000; "></div>
+            <div id="piechart2" style="width: 400px; height: 300px; border: 2px solid #000000; "></div>
+
+            
+        </div>
+    </article>
+
+
+
+    <!--footer -->
+    <footer>
+        <div class="footer-content">
+            <pre>&copy; 2026 . All rights reserved.
+            Developed by Group 54 IIT Patna,BS CS 2025-2029 Batch.
+ A project for the bringing transparency in the public distribution system of india and to make the administration of the system more efficient and effective.
+            </pre>
+            <pre> follow us on social media :
+ <a href="https://www.facebook.com/"><i class="fa-brands fa-facebook"></i></a>    <a href="https://www.instagram.com/"><i class="fa-brands fa-instagram"></i></a>     <a href="https://www.twitter.com/"><i class="fa-brands fa-twitter  "></i></a>
+ </pre>
+        </div>
+    </footer>
+
+
+
+
+
+
+    
+
+</body>
+</html>

@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kisan Portal</title>
+<style>
+  body { font-family: 'Segoe UI', sans-serif; margin:0; background:#f8f9fa; color:#212529; }
+
+  header {
+    background: url('banner.jpg') no-repeat center/cover;
+    padding: 60px 20px;
+    text-align: center;
+    color: #fff;
+  }
+  header h1 { font-size: 2.5em; margin:0; color:#2e7d32; }
+  header p { font-size: 1.2em; font-weight: bold; color:#000000; }
+
+  .filters {
+    display:flex; justify-content:center; gap:10px;
+    padding:15px; background:#fff; border-bottom:1px solid #dee2e6;
+  }
+  select, button {
+    padding:8px 12px; border-radius:4px; border:1px solid #ccc;
+  }
+  button { background:#007bff; color:#fff; border:none; cursor:pointer; }
+
+  .mandi-grid {
+    display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:20px; padding:20px;
+  }
+  .mandi-card {
+    background:#fff; border:1px solid #dee2e6; border-radius:8px;
+    padding:15px; box-shadow:0 2px 4px rgba(0,0,0,0.05);
+    cursor:pointer; transition:transform 0.2s;
+  }
+  .mandi-card:hover { transform:scale(1.03); border-color:#007bff; }
+  .mandi-card h3 { margin:0 0 10px; color:#2e7d32; }
+
+  .modal {
+    display:none; position:fixed; top:0; left:0; width:100%; height:100%;
+    background:rgba(0,0,0,0.5); justify-content:center; align-items:center;
+  }
+  .modal-content {
+    background:#fff; padding:20px; border-radius:8px; width:400px; max-width:90%;
+  }
+  .modal-content h2 { margin-top:0; color:#2e7d32; }
+  .modal-content ul { list-style:none; padding:0; }
+  .modal-content li { padding:5px 0; border-bottom:1px solid #eee; }
+  .close-btn { background:#dc3545; color:#fff; border:none; padding:8px 12px; border-radius:4px; cursor:pointer; }
+
+  footer { text-align:center; padding:15px; background:#fff; border-top:1px solid #dee2e6; }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Kisan Portal</h1>
+  <p>Get Real-Time Mandi Prices of Crops Across India</p>
+</header>
+
+<div class="filters">
+    <select id="state">
+    <option value="">Select State</option>
+    <!-- ✅ All states of India -->
+    <option value="Andhra Pradesh">Andhra Pradesh</option>
+    <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+    <option value="Assam">Assam</option>
+    <option value="Bihar">Bihar</option>
+    <option value="Chhattisgarh">Chhattisgarh</option>
+    <option value="Goa">Goa</option>
+    <option value="Gujarat">Gujarat</option>
+    <option value="Haryana">Haryana</option>
+    <option value="Himachal Pradesh">Himachal Pradesh</option>
+    <option value="Jharkhand">Jharkhand</option>
+    <option value="Karnataka">Karnataka</option>
+    <option value="Kerala">Kerala</option>
+    <option value="Madhya Pradesh">Madhya Pradesh</option>
+    <option value="Maharashtra">Maharashtra</option>
+    <option value="Manipur">Manipur</option>
+    <option value="Meghalaya">Meghalaya</option>
+    <option value="Mizoram">Mizoram</option>
+    <option value="Nagaland">Nagaland</option>
+    <option value="Odisha">Odisha</option>
+    <option value="Punjab">Punjab</option>
+    <option value="Rajasthan">Rajasthan</option>
+    <option value="Sikkim">Sikkim</option>
+    <option value="Tamil Nadu">Tamil Nadu</option>
+    <option value="Telangana">Telangana</option>
+    <option value="Tripura">Tripura</option>
+    <option value="Uttar Pradesh">Uttar Pradesh</option>
+    <option value="Uttarakhand">Uttarakhand</option>
+    <option value="West Bengal">West Bengal</option>
+  </select>
+  <select id="crop">
+  <option>Onion</option>
+  <option>Tomato</option>
+  <option>Potato</option>
+  <option>Wheat</option>
+  <option>Rice</option>
+  <option>Maize</option>
+  <option>Barley</option>
+  <option>Mustard</option>
+  <option>Soybean</option>
+  <option>Cotton</option>
+  <option>Sugarcane</option>
+  <option>Groundnut</option>
+  <option>Sunflower</option>
+  <option>Peas</option>
+  <option>Banana</option>
+  <option>Mango</option>
+  <option>Apple</option>
+  <option>Orange</option>
+  <option>Grapes</option>
+  <option>Papaya</option>
+  <option>Pomegranate</option>
+  <option>Chili</option>
+  <option>Coriander</option>
+  <option>Turmeric</option>
+  <option>Cumin</option>
+  <option>Garlic</option>
+  <option>Ginger</option>
+  <option>Cauliflower</option>
+  <option>Cabbage</option>
+  <option>Carrot</option>
+  <option>Spinach</option>
+  <option>Okra</option>
+  </select>
+  <button onclick="fetchMandis()">Search</button>
+</div>
+
+<div class="mandi-grid" id="mandiGrid">
+
+</div>
+
+<div class="modal" id="modal">
+  <div class="modal-content">
+    <h2 id="modalTitle"></h2>
+    <ul id="cropList"></ul>
+    <button class="close-btn" onclick="closeModal()">Close</button>
+  </div>
+</div>
+
+<footer>© Government of India | Disclaimer | Contact Us</footer>
+
+<script>
+  // ✅ Replace with your API key from data.gov.in
+  const apiKey = "579b464db66ec23bdd000001cdd3946e44ce4aad7209ff7b23ac571b";
+
+   
+  // Fetch mandi data from Agmarknet API
+  async function fetchMandis() {
+    const state = document.getElementById('state').value;
+    const crop = document.getElementById('crop').value;
+
+    if (!state || !crop) {
+      alert("Please select both state and crop.");
+      return;
+    }
+
+    const url = `https://api.data.gov.in/resource/9ef84268-d588-465a-a308-a864a43d0070?api-key=${apiKey}&format=json&filters[state]=${state}&filters[commodity]=${crop}`;
+
+    try {
+      const response = await fetch(url);
+      const data = await response.json();
+      displayMandis(data.records);
+    } catch (error) {
+      console.error("Error fetching data:", error);
+      alert("Failed to fetch mandi data.");
+    }
+  }
+
+  // Display mandi cards
+  function displayMandis(records) {
+    const grid = document.getElementById('mandiGrid');
+    grid.innerHTML = '';
+
+    const grouped = {};
+    records.forEach(r => {
+      if (!grouped[r.market]) grouped[r.market] = [];
+      grouped[r.market].push(r);
+    });
+
+    for (let mandi in grouped) {
+      const card = document.createElement('div');
+      card.className = 'mandi-card';
+      card.innerHTML = `<h3>${mandi}</h3><p>${grouped[mandi].length} crops available</p>`;
+      card.onclick = () => openModal(mandi, grouped[mandi]);
+      grid.appendChild(card);
+    }
+  }
+
+  // Open modal with crop prices
+  function openModal(mandi, crops) {
+    const modal = document.getElementById('modal');
+    const title = document.getElementById('modalTitle');
+    const list = document.getElementById('cropList');
+    title.textContent = `${mandi} Mandi Prices`;
+    list.innerHTML = '';
+
+    crops.forEach(c => {
+      const li = document.createElement('li');
+      li.textContent = `${c.commodity}: ₹${c.min_price} - ₹${c.max_price} | ₹${c.modal_price}`;
+      list.appendChild(li);
+    });
+
+    modal.style.display = 'flex';
+  }
+
+  function closeModal() {
+    document.getElementById('modal').style.display = 'none';
+  }
+</script>
+
+</body>
+</html>
+
+
+

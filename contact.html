@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact Us | Advanced Public Distribution System</title>
+<link rel="stylesheet" href="contact.css">
+</head>
+
+<body>
+
+<header class="header">
+  <h1>Advanced Public Distribution System</h1>
+  <p>Contact & Support</p>
+</header>
+
+<div class="container">
+
+  <div class="contact-wrapper">
+
+    <!-- LEFT INFO -->
+    <div class="contact-info">
+      <h2>Get in Touch</h2>
+
+      <p><strong>📍 Address:</strong>&nbsp;
+      Food and Civil Supplies Department.<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      Advanced Public Distribution System.</p>
+
+      <br>
+
+      <p><strong>📞 Phone:</strong>&nbsp;
+      +91 9876543210</p>
+
+      <br>
+
+      <p><strong>📧 Email:</strong>&nbsp;
+      support@apds.gov.in</p>
+
+      <br>
+
+      <p><strong>🕒 Working Hours:</strong>&nbsp;
+      Mon - Fri: 9:00 AM - 5:00 PM</p>
+    </div>
+
+    <!-- RIGHT FORM -->
+    <div class="contact-form">
+      <h2>Send Message</h2>
+
+      <form id="contactForm">
+
+        <input type="text" id="name" placeholder="Your Name" required>
+        <input type="email" id="email" placeholder="Your Email" required>
+
+        <select id="subject" required>
+          <option value="">Select Issue Type</option>
+          <option>Ration Not Received</option>
+          <option>Wrong Quantity</option>
+          <option>Technical Issue</option>
+          <option>Other</option>
+        </select>
+
+        <textarea id="message" placeholder="Write your message..." required></textarea>
+
+        <button type="submit">Submit</button><br>
+        <a href="Home.html"><button type="button">Home</button></a>
+
+      </form>
+
+    </div>
+
+  </div>
+
+</div>
+
+<footer class="footer">
+  <p>© 2026 APDS | Advanced Public Distribution System</p>
+</footer>
+
+<script>
+    document.getElementById("contactForm").addEventListener("submit", function(e){
+    e.preventDefault();
+
+    let data = {
+        name: document.getElementById("name").value,
+        email: document.getElementById("email").value,
+        subject: document.getElementById("subject").value,
+        message: document.getElementById("message").value
+    };
+
+    // Save to localStorage (for demo)
+    let messages = JSON.parse(localStorage.getItem("messages")) || [];
+    messages.push(data);
+    localStorage.setItem("messages", JSON.stringify(messages));
+
+    alert("Your complaint has been submitted!");
+
+    this.reset();
+    });
+</script>
+
+</body>
+</html>
