@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Registration | Advance Public Distribution System</title>
+<link rel="stylesheet" href="form.css">
+</head>
+
+<body>
+
+  <header class="header">
+    <h1>Advanced Public Distribution System</h1>
+    <p>Beneficiary Registration</p>
+  </header>
+
+
+
+  <div class="container">
+
+    <!-- Progress Bar -->
+    <div class="progress-bar">
+      <div class="step active">1</div>
+      <div class="step">2</div>
+      <div class="step">3</div>
+      <div class="step">4</div>
+      <div class="step">5</div>
+      <div class="step">6</div>
+      <div class="step">7</div>
+      <div class="step">8</div>
+    </div>
+
+    
+
+
+
+    <form id="form">
+
+      <!-- STEP 1 -->
+      <div class="form-step active">
+        <h2>Personal Details</h2>
+
+        <div class="grid">
+          <input type="number" id="adhaar_number" placeholder="Adhaar Number">
+          <br>
+          <input type="number" id="RC_number" placeholder="Ration Card Number">
+          <input type="text" id="fname" placeholder="First Name">
+          <input type="text" id="mname" placeholder="Middle Name">
+          <input type="text" id="lname" placeholder="Last Name">
+          <select name="GENDER" id="GENDER">
+
+            <option>GENDER</option>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+            <option value="Others">Others</option>
+
+          </select><br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          Date of Birth : <input type="date" id="DOB" placeholder="Date of Birth">
+          <input type="number" id="Mobile_number" placeholder="Mobile"><br>
+          <input type="email" id="Email" placeholder="Email">
+          <input type="text" id="ffname" placeholder="Father's First Name">
+          <input type="text" id="fmname" placeholder="Father's Middle Name">
+          <input type="text" id="flname" placeholder="Father's Last Name">
+          <input type="text" id="mfname" placeholder="Mother's First Name">
+          <input type="text" id="mmname" placeholder="Mother's Middle Name">
+          <input type="text" id="mlname" placeholder="Mother's Last Name">
+        </div>
+
+        <div class="buttons">
+          <a href="Home.html"><button type="button">Home</button></a>
+          <button type="button" onclick="nextStep()">Next</button>
+        </div>
+      </div>
+
+      <!-- STEP 2 -->
+      <div class="form-step">
+        <h2>Identitey Proofs</h2>
+
+        <div class="grid">
+          <input type="text" id="adhaar_n" placeholder="Name as adhaar">
+          <input type="text" id="Voter_n" placeholder="Name as Voter Card">
+          <input type="text" id="Pan_n" placeholder="Name as PAN Card">
+          <input type="number" id="Adhaar_number" placeholder="Adhaar number">
+          <input type="text" id="voter_number" placeholder="Voter number">
+          <input type="text" id="pan_number" placeholder="PAN number">
+        </div>
+
+        <div class="buttons">
+          <button type="button" onclick="prevStep()">Back</button>
+          <button type="button" onclick="nextStep()">Next</button>
+        </div>
+      </div>
+
+      <!-- STEP 3 -->
+      <div class="form-step">
+        <h2>Address</h2>
+
+        <div class="grid">
+          <input type="text" id="country" placeholder="Country">
+          <input type="text" id="state" placeholder="State">
+          <input type="text" id="district" placeholder="District">
+          <input type="text" id="division" placeholder="Division">
+          <input type="text" id="sub_division" placeholder="Sub-Division/Block">
+          <input type="text" id="police_station" placeholder="Police Station">
+          <input type="text" id="post_office" placeholder="Post Office">
+          
+          <select name="local Body" id="local_body">
+            <option>Local Body</option>
+            <option value="Village Panchayat">Village Panchayat</option>
+            <option value="Muncipal Corporation">Muncipal Corporation</option>
+            <option value="Muncipality">Muncipality</option>
+            <option value="Town Panchayat">Town Panchayat</option>
+          </select>
+
+          <input type="number" id="ward_no" placeholder="Ward No">
+          <input type="text" id="village" placeholder="Village/Town">
+          <input type="number" id="pin_code" placeholder="Pin Code">
+          <input type="number" id="zip_code" placeholder="Zip Code (optional)">
+          
+          <h2>Permanant Address</h2><br>
+
+          <div><input type="radio"> Same as Above</div> 
+          <input type="text" placeholder="Country">
+          <input type="text" placeholder="State">
+          <input type="text" placeholder="District">
+          <input type="text" placeholder="Division">
+          <input type="text" placeholder="Sub-Division/Block">
+          <input type="text" placeholder="Police Station">
+          <input type="text" placeholder="Post Office">
+          
+          <select name="local Body">
+            <option>Local Body</option>
+            <option value="Village Panchayat">Village Panchayat</option>
+            <option value="Muncipal Corporation">Muncipal Corporation</option>
+            <option value="Muncipality">Muncipality</option>
+            <option value="Town Panchayat">Town Panchayat</option>
+          </select>
+
+          <input type="number" placeholder="Ward No">
+          <input type="text" placeholder="Village/Town">
+          <input type="number" placeholder="Pin Code">
+          <input type="number" placeholder="Zip Code (optional)">
+        </div>
+
+        <div class="buttons">
+          <button type="button" onclick="prevStep()">Back</button>
+          <button type="button" onclick="nextStep()">Next</button>
+        </div>
+      </div>
+
+      <!-- STEP 4 -->
+      <div class="form-step">
+        <h2>Ration Card Type</h2>
+
+        <div class="radio-group">
+          <label><input type="radio" name="rc" value="AAY"> Anna Yojana (AAY) Ration Card</label><br>
+          <label><input type="radio" name="rc" value="PHH"> Priority Household (PHH) Ration Card</label><br>
+          <label><input type="radio" name="rc" value="BPL"> Below Poverty Line (BPL) Ration Card</label><br>
+          <label><input type="radio" name="rc" value="APL"> Above Poverty Line (APL) Ration Card</label><br>
+        </div>
+
+        <div class="buttons">
+          <button type="button" onclick="prevStep()">Back</button>
+          <button type="button" onclick="nextStep()">Next</button>
+        </div>
+      </div>
+
+      <!-- STEP 5 -->
+      <div class="form-step">
+        <h2>Annual Income Details</h2>
+
+        <div class="grid">
+          
+          <select name="Profession" id="profession">
+            <option>Profession</option>
+            <option value="Govt. Employee">Govt. Employee</option>
+            <option value="OBC">privet sector Employee</option>
+            <option value="EBC">self Employee</option>
+            <option value="General">Others</option>
+          </select>
+
+          <input type="text" id="income_prof" placeholder="Income from Profession">
+          <input type="text" id="income_other"placeholder="Income from other sources">
+          <input type="text" id="total_income" placeholder="Total Annual Income">
+        </div>
+
+        <br><br>
+        <h2>Category Details</h2>
+
+        <div class="grid">
+
+          <select name="Category" id="category">
+            <option>Category</option>
+            <option value="Sc/St">Sc/St</option>
+            <option value="OBC">OBE</option>
+            <option value="EBC">EBC</option>
+            <option value="General">General</option>
+          </select>
+
+          <select name="Cast" id="cast">
+            <option>Cast</option>
+            <option value="Sc/St">......</option>
+            <option value="Sc/St">......</option>
+            <option value="Sc/St">......</option>
+            <option value="Sc/St">......</option>
+            <option value="Sc/St">......</option>
+            <option value="Sc/St">......</option>
+            <option value="Sc/St">......</option>
+            <option value="Sc/St">......</option>
+            <option value="Sc/St">......</option>
+            <option value="Sc/St">......</option>
+            <option value="Sc/St">......</option>
+            <option value="Sc/St">......</option>
+          </select>
+
+          <select name="Sub-Cast" id="sub_cast">
+            <option>Sub-cast</option>
+            <option value="Sc/St">......</option>
+            <option value="Sc/St">......</option>
+            <option value="Sc/St">......</option>
+            <option value="Sc/St">......</option>
+            <option value="Sc/St">......</option>
+            <option value="Sc/St">......</option>
+            <option value="Sc/St">......</option>
+            <option value="Sc/St">......</option>
+            <option value="Sc/St">......</option>
+            <option value="Sc/St">......</option>
+            <option value="Sc/St">......</option>
+            <option value="Sc/St">......</option>
+          </select>
+          
+        </div>
+
+        <div class="buttons">
+          <button type="button" onclick="prevStep()">Back</button>
+          <button type="button" onclick="nextStep()">Next</button>
+        </div>
+      </div>
+
+      <!-- STEP 6 -->
+      <div class="form-step">
+        <h2>Bank Details</h2>
+
+        <div class="flex">
+          Account Holder's Name : <input type="text" id="holder" placeholder="Account Holder Name">
+          Name of Bank : <input type="text" id="bank" placeholder="Bank Name">
+          Branch : <input type="text" id="branch" placeholder="Bank Branch">
+          Account No : <input type="text" id="account" placeholder="Account Number">
+          IFSC Code : <input type="text" id="ifsc" placeholder="IFSC Code">
+        </div>
+
+        <div class="buttons">
+          <button type="button" onclick="prevStep()">Back</button>
+          <button type="button" onclick="nextStep()">Next</button>
+        </div>
+      </div>
+
+      <!-- STEP 7 -->
+      <div class="form-step">
+        <h1>Family Members</h1>
+
+        <div class="grid">
+
+          <input type="text" id="name" placeholder="Enter Name">
+          <input type="number" id="age" placeholder="Enter Age">
+
+          <select id="relation">
+          <option value="">Select Relation</option>
+          <option>Father</option>
+          <option>Mother</option>
+          <option>Son</option>
+          <option>Daughter</option>
+          </select>
+
+          <button type="button" onclick="enqueueMember()">Add Member</button>
+        </div><br>
+
+        <table>
+          <thead>
+            <tr>
+              <th>No.</th>
+              <th>Name</th>
+              <th>Age</th>
+              <th>Relation</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          
+          <tbody id="memberTableBody"></tbody>
+
+        </table>
+
+        <div class="buttons">
+          <button type="button" onclick="prevStep()">Back</button>
+          <button type="button" onclick="nextStep()">Next</button>
+        </div>
+      </div>
+
+      <!-- STEP 8 -->
+       <div class="form-step">
+        <h2>Upload Documents</h2>
+
+        <div class="flex">
+          Adhaar Card <input type="file" name="Adhaar">
+          Voter Card <input type="file" name="Adhaar">
+          PAN Card <input type="file" name="Adhaar">
+          Passport Size Photo of Beneficiary  <input type="file" name="Adhaar">
+          Beneficiary Photo with all Family members <input type="file" name="Adhaar">
+          Residence Certificate <input type="file" name="Adhaar">
+          Cast Certificate <input type="file" name="Adhaar">
+          Income Certificate <input type="file" name="Adhaar">
+        </div>
+      
+        <div class="buttons">
+          <button type="button" onclick="prevStep()">Back</button>
+          <button type="submit">Submit</button>
+        </div>
+
+      </div>
+
+
+    </form>
+
+  </div>
+
+</body>
+
+<script>
+  let currentStep = 0;
+  const steps = document.querySelectorAll(".form-step");
+  const progress = document.querySelectorAll(".step");
+
+  function showStep(index){
+    steps.forEach((step,i)=>{
+      step.classList.toggle("active", i === index);
+      progress[i].classList.toggle("active", i <= index);
+    });
+  }
+
+  function nextStep(){
+    if(currentStep < steps.length - 1){
+      currentStep++;
+      showStep(currentStep);
+    }
+  }
+
+  function prevStep(){
+    if(currentStep > 0){
+      currentStep--;
+      showStep(currentStep);
+    }
+  }
+
+
+  // Family Member Details
+
+      /* FAMILY MEMBER SYSTEM */
+
+  let familyQueue = JSON.parse(localStorage.getItem("familyMembers")) || [];
+
+  // Add Member
+  function enqueueMember(){
+
+    const name =
+    document.getElementById("name").value;
+
+    const age =
+    document.getElementById("age").value;
+
+    const relation =
+    document.getElementById("relation").value;
+
+    if(name === "" || age === "" || relation === ""){
+      alert("Fill all fields");
+      return;
+    }
+
+    const member = {
+      name:name,
+      age:age,
+      relation:relation
+    };
+
+    familyQueue.push(member);
+
+    localStorage.setItem(
+      "familyMembers",
+      JSON.stringify(familyQueue)
+    );
+
+    displayQueue();
+
+    document.getElementById("name").value="";
+    document.getElementById("age").value="";
+    document.getElementById("relation").value="";
+  }
+
+  // Display Members
+  function displayQueue(){
+
+    const tableBody =
+    document.getElementById("memberTableBody");
+
+    tableBody.innerHTML = "";
+
+    familyQueue.forEach((member,index)=>{
+
+      tableBody.innerHTML += `
+
+        <tr>
+          <td>${index+1}</td>
+          <td>${member.name}</td>
+          <td>${member.age}</td>
+          <td>${member.relation}</td>
+
+          <td>
+            <button
+            type="button"
+            class="delete-btn"
+            onclick="removeMember(${index})">
+            Remove
+            </button>
+          </td>
+
+        </tr>
+
+      `;
+    });
+  }
+
+  // Remove Member
+  function removeMember(index){
+
+    familyQueue.splice(index,1);
+
+    localStorage.setItem(
+      "familyMembers",
+      JSON.stringify(familyQueue)
+    );
+
+    displayQueue();
+  }
+
+  // Show table on page load
+  displayQueue();
+
+
+
+
+    /* FORM SUBMIT */
+
+    document.getElementById("form").addEventListener("submit", function(e){
+
+      e.preventDefault();
+
+      // STORE DATA
+
+      localStorage.setItem(
+          "adhaar_number",
+          document.getElementById("adhaar_number").value
+      );
+
+      localStorage.setItem(
+          "RC_number",
+          document.getElementById("RC_number").value
+      );
+
+      localStorage.setItem(
+          "fname",
+          document.getElementById("fname").value
+      );
+
+      localStorage.setItem(
+          "mname",
+          document.getElementById("mname").value
+      );
+
+      localStorage.setItem(
+          "lname",
+          document.getElementById("lname").value
+      );
+
+      localStorage.setItem(
+          "GENDER",
+          document.getElementById("GENDER").value
+      );
+
+      localStorage.setItem(
+          "DOB",
+          document.getElementById("DOB").value
+      );
+
+      localStorage.setItem(
+          "Mobile_number",
+          document.getElementById("Mobile_number").value
+      );
+
+      localStorage.setItem(
+          "Email",
+          document.getElementById("Email").value
+      );
+
+      localStorage.setItem(
+          "ffname",
+          document.getElementById("ffname").value
+      );
+
+      localStorage.setItem(
+          "fmname",
+          document.getElementById("fmname").value
+      );
+
+      localStorage.setItem(
+          "flname",
+          document.getElementById("flname").value
+      );
+
+      localStorage.setItem(
+          "mfname",
+          document.getElementById("mfname").value
+      );
+
+      localStorage.setItem(
+          "mmname",
+          document.getElementById("mmname").value
+      );
+
+      localStorage.setItem(
+          "mlname",
+          document.getElementById("mlname").value
+      );
+
+      // Identity proof
+
+      localStorage.setItem(
+          "adhaar_n",
+          document.getElementById("adhaar_n").value
+      );
+
+      localStorage.setItem(
+          "Voter_n",
+          document.getElementById("Voter_n").value
+      );
+
+      localStorage.setItem(
+          "Pan_n",
+          document.getElementById("Pan_n").value
+      );
+
+      localStorage.setItem(
+          "Adhaar_number",
+          document.getElementById("Adhaar_number").value
+      );
+
+      localStorage.setItem(
+          "voter_number",
+          document.getElementById("voter_number").value
+      );
+
+      localStorage.setItem(
+          "pan_number",
+          document.getElementById("pan_number").value
+      );
+
+      // Address
+
+      localStorage.setItem(
+          "country",
+          document.getElementById("country").value
+      );
+
+      localStorage.setItem(
+          "state",
+          document.getElementById("state").value
+      );
+
+      localStorage.setItem(
+          "district",
+          document.getElementById("district").value
+      );
+
+      localStorage.setItem(
+          "division",
+          document.getElementById("division").value
+      );
+
+      localStorage.setItem(
+          "sub_division",
+          document.getElementById("sub_division").value
+      );
+
+      localStorage.setItem(
+          "police_station",
+          document.getElementById("police_station").value
+      );
+
+      localStorage.setItem(
+          "post_office",
+          document.getElementById("post_office").value
+      );
+
+      localStorage.setItem(
+          "local_body",
+          document.getElementById("local_body").value
+      );
+
+      localStorage.setItem(
+          "ward_no",
+          document.getElementById("ward_no").value
+      );
+
+      localStorage.setItem(
+          "village",
+          document.getElementById("village").value
+      );
+
+      localStorage.setItem(
+          "pin_code",
+          document.getElementById("pin_code").value
+      );
+
+      localStorage.setItem(
+          "zip_code",
+          document.getElementById("zip_code").value
+      );
+
+      // Ration Card Type
+
+
+      // Income & category
+
+      localStorage.setItem(
+          "profession",
+          document.getElementById("profession").value
+      );
+
+      localStorage.setItem(
+          "income_prof",
+          document.getElementById("income_prof").value
+      );
+
+      localStorage.setItem(
+          "income_other",
+          document.getElementById("income_other").value
+      );
+
+      localStorage.setItem(
+          "total_income",
+          document.getElementById("total_income").value
+      );
+
+      localStorage.setItem(
+          "category",
+          document.getElementById("category").value
+      );
+
+      localStorage.setItem(
+          "cast",
+          document.getElementById("cast").value
+      );
+
+      localStorage.setItem(
+          "sub_cast",
+          document.getElementById("sub_cast").value
+      );
+
+      // Bank Details
+
+      localStorage.setItem(
+          "holder",
+          document.getElementById("holder").value
+      );
+
+      localStorage.setItem(
+          "bank",
+          document.getElementById("bank").value
+      );
+
+      localStorage.setItem(
+          "branch",
+          document.getElementById("branch").value
+      );
+
+      localStorage.setItem(
+          "account",
+          document.getElementById("account").value
+      );
+
+      localStorage.setItem(
+          "ifsc",
+          document.getElementById("ifsc").value
+      );
+      // OPEN PREVIEW PAGE
+
+      window.location.href = "form_preview.html";
+
+  });
+</script>
+
+</html>

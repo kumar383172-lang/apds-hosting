@@ -1,0 +1,200 @@
+/* ---------------- GLOBAL SYSTEM ---------------- */
+:root {
+  --primary-dark: #0F5757;
+  --primary-mid: #2D8686;
+  --primary-light: #75BDBD;
+  --bg-page: #D9F2F2;
+  --bg-card: #A6D9D9;
+  --text-dark: #003333;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background: var(--bg-page);
+  color: var(--text-dark);
+  line-height: 1.5;
+}
+
+/* ---------------- HEADER ---------------- */
+.header {
+  background: var(--primary-dark);
+  color: white;
+  padding: 26px 16px 18px;
+  text-align: center;
+  border-bottom: 4px solid var(--primary-light);
+}
+
+.header h1 {
+  margin: 0;
+  font-size: 22px;
+  letter-spacing: 0.5px;
+}
+
+.header h2 {
+  margin: 6px 0 4px;
+  font-size: 15px;
+  font-weight: normal;
+  opacity: 0.95;
+}
+
+.header p {
+  margin: 0;
+  font-size: 12px;
+  opacity: 0.85;
+}
+
+/* ---------------- SECTION LAYOUT ---------------- */
+.section {
+  width: 90%;
+  max-width: 920px;
+  margin: 28px auto;
+}
+
+/* ---------------- CARD SYSTEM ---------------- */
+.card {
+  background: var(--bg-card);
+  padding: 18px;
+  border-radius: 6px;
+}
+
+/* Primary card – important actions */
+.card-primary {
+  box-shadow: 0 6px 14px rgba(0,0,0,0.12);
+}
+
+/* Secondary card – insights / analytics */
+.card-secondary {
+  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+}
+
+/* Utility card – low priority */
+.card-utility {
+  background: #cfeeee;
+  box-shadow: none;
+}
+
+/* ---------------- PROFILE ---------------- */
+.profile-section {
+  text-align: center;
+}
+
+.avatar-btn {
+  font-size: 42px;
+  background: var(--primary-light);
+  border: 2px solid var(--primary-dark);
+  border-radius: 50%;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.avatar-btn:hover {
+  background: var(--primary-mid);
+  color: white;
+}
+
+.profile-section h3 {
+  margin: 12px 0 4px;
+}
+
+.small-note {
+  font-size: 12px;
+  opacity: 0.75;
+}
+
+/* ---------------- ACTION BUTTONS ---------------- */
+.action-group {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.action-btn {
+  padding: 14px;
+  background: var(--primary-dark);
+  color: white;
+  border: none;
+  font-size: 15px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.action-btn:hover {
+  background: var(--primary-mid);
+}
+
+/* ---------------- GRAPHS ---------------- */
+.graph-box {
+  margin-top: 18px;
+  text-align: center;
+}
+
+.graph-box h4 {
+  margin-bottom: 10px;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+/* ---------------- UTILITIES ---------------- */
+.utility-section {
+  text-align: center;
+}
+
+.secondary-btn {
+  padding: 10px 20px;
+  margin: 6px;
+  background: var(--primary-dark);
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.secondary-btn.logout {
+  background: #8b0000;
+}
+/* -------- GRAPH SECTION UPGRADE -------- */
+
+.section-title {
+  margin-bottom: 16px;
+  font-size: 17px;
+  border-left: 5px solid var(--primary-dark);
+  padding-left: 10px;
+}
+
+.insight-card {
+  background: #cfeeee;
+  border-radius: 6px;
+  padding: 12px;
+  margin-bottom: 14px;
+}
+
+.insight-text h4 {
+  margin: 0 0 6px;
+  font-size: 15px;
+}
+
+.insight-text p {
+  margin: 0 0 12px;
+  font-size: 13px;
+  opacity: 0.85;
+}
+
+/* Visual container for graph */
+.insight-visual {
+  background: #ffffff;
+  border: 1px dashed var(--primary-mid);
+  padding: 12px;
+  text-align: center;
+}
+
+
+/* ---------------- FOOTER ---------------- */
+.footer {
+  background: var(--primary-dark);
+  color: white;
+  text-align: center;
+  padding: 14px;
+  font-size: 12px;
+  margin-top: 40px;
+}

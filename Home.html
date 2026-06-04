@@ -1,0 +1,503 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HOME | Advanced Public Distribution System</title>
+  <link rel="stylesheet" href="Home.css">
+  <style>
+  /* RESET */
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:Arial, sans-serif;
+}
+
+body{
+  background:#f5f7fa;
+  color:#222;
+}
+
+.container{
+  width:90%;
+  max-width:1300px;
+  margin:auto;
+}
+
+/* HEADER */
+.header{
+  background:#1B4332;
+  color:white;
+  padding:18px 0;
+  box-shadow:0 4px 10px rgba(0,0,0,0.2);
+}
+
+.header-content{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  flex-wrap:wrap;
+}
+
+.logo-section{
+  display:flex;
+  align-items:center;
+  gap:18px;
+}
+
+.logo{
+  width:80px;
+  height:80px;
+  border-radius:50%;
+  border:3px solid white;
+}
+
+.logo-section h1{
+  font-size:32px;
+}
+
+.logo-section p{
+  color:#d8f3dc;
+  margin-top:5px;
+}
+
+/* NAVBAR */
+.navbar{
+  background:#E67E22;
+  position:sticky;
+  top:0;
+  z-index:100;
+}
+
+.nav-links{
+  display:flex;
+  justify-content:center;
+  gap:35px;
+  padding:15px 0;
+  flex-wrap:wrap;
+}
+
+.nav-links a{
+  text-decoration:none;
+  color:white;
+  font-weight:bold;
+  transition:0.3s;
+}
+
+.nav-links a:hover{
+  color:#1B4332;
+}
+
+/* HERO */
+.hero{
+  background:url('img03.jpg') center/cover no-repeat;
+  height:500px;
+  position:relative;
+}
+
+.hero-overlay{
+  background:rgba(0,0,0,0.6);
+  width:100%;
+  height:100%;
+  display:flex;
+  align-items:center;
+}
+
+.hero-content{
+  color:white;
+}
+
+.hero-content h1{
+  font-size:60px;
+  margin-bottom:20px;
+}
+
+.hero-content p{
+  max-width:700px;
+  line-height:1.8;
+  font-size:18px;
+}
+
+/* MAIN SECTION */
+.main{
+  display:grid;
+  grid-template-columns:260px 1fr 280px;
+  gap:25px;
+  margin:60px auto;
+}
+
+.sidebar,
+.content,
+.updates{
+  background:white;
+  border-radius:20px;
+  padding:25px;
+  box-shadow:0 5px 15px rgba(0,0,0,0.08);
+}
+
+.sidebar h2,
+.content h2,
+.updates h2{
+  margin-bottom:20px;
+  color:#1B4332;
+}
+
+.card{
+  background:#f5f7fa;
+  padding:18px;
+  border-radius:15px;
+  margin-bottom:18px;
+}
+
+.card h3{
+  margin-bottom:10px;
+}
+
+.card ul{
+  padding-left:18px;
+  line-height:1.8;
+}
+
+.content p{
+  line-height:1.8;
+}
+
+.content ul{
+  list-style:none;
+  line-height:2;
+}
+
+.stats-section{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+  gap:20px;
+  margin-top:120px;
+}
+
+.stat-box{
+  background:#1B4332;
+  color:white;
+  padding:20px;
+  border-radius:15px;
+  text-align:center;
+}
+
+.stat-box h3{
+  font-size:30px;
+  margin-bottom:10px;
+}
+
+.update-card{
+  background:#f5f7fa;
+  padding:18px;
+  border-radius:15px;
+  margin-bottom:18px;
+}
+
+.update-card h4{
+  color:#1B4332;
+  margin-bottom:8px;
+}
+
+/* GALLERY */
+.gallery-section{
+  margin-bottom:60px;
+}
+
+.gallery-section h2{
+  text-align:center;
+  margin-bottom:30px;
+  color:#1B4332;
+  font-size:36px;
+}
+
+.gallery{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:20px;
+}
+
+.gallery img{
+  width:100%;
+  height:220px;
+  object-fit:cover;
+  border-radius:20px;
+  transition:0.3s;
+}
+
+.gallery img:hover{
+  transform:scale(1.03);
+}
+
+/* FOOTER */
+footer{
+  background:#1B4332;
+  color:white;
+  padding-top:60px;
+}
+
+.footer-container{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:35px;
+}
+
+.footer-box h2{
+  margin-bottom:20px;
+  color:#E67E22;
+}
+
+.footer-box p{
+  line-height:1.9;
+}
+
+.copyright{
+  text-align:center;
+  margin-top:40px;
+  padding:20px;
+  border-top:1px solid rgba(255,255,255,0.2);
+}
+
+/* RESPONSIVE */
+@media(max-width:1000px){
+
+  .main{
+    grid-template-columns:1fr;
+  }
+
+  .hero-content h1{
+    font-size:42px;
+  }
+
+}
+
+@media(max-width:700px){
+
+  .header-content{
+    flex-direction:column;
+    gap:20px;
+    text-align:center;
+  }
+
+} 
+</style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="header">
+
+    <div class="container header-content">
+
+      <div class="logo-section">
+        <img src="logo.png" class="logo" alt="logo">
+
+        <div>
+          <h1>Advanced Public Distribution System</h1>
+          <p>Transparent & Smart Ration Distribution Portal</p>
+        </div>
+      </div>
+
+      
+      </div>
+
+    </div>
+
+  </header>
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+
+    <div class="container nav-links">
+      <a href="stats.html">Statistics</a>
+      <a href="About.html">About Us</a>
+      <a href="contact.html">Contact</a>
+      <a href="Login.html">Login</a>
+      <a href="form.html">Register</a>
+    </div>
+
+  </nav>
+
+  <!-- HERO SECTION -->
+  <section class="hero">
+
+    <div class="hero-overlay">
+
+      <div class="container hero-content">
+
+        <h1>Advanced Public Distribution System</h1>
+
+        <p>
+          Ensuring transparency, efficiency, and fairness in ration distribution through a digital grievance and monitoring platform.
+        </p>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- MAIN CONTENT -->
+  <section class="main container">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+
+      <h2>Portal Access</h2>
+
+      <div class="card">
+        <h3>Administrator</h3>
+        <ul>
+          <li>Manage Users</li>
+          <li>Approve Requests</li>
+          <li>Track Complaints</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3>Distributor</h3>
+        <ul>
+          <li>Update Stocks</li>
+          <li>Distribution Records</li>
+          <li>Delivery Monitoring</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3>Beneficiary</h3>
+        <ul>
+          <li>Apply for Ration Card</li>
+          <li>Track Status</li>
+          <li>Submit Complaints</li>
+        </ul>
+      </div>
+
+    </aside>
+
+    <!-- CONTENT -->
+    <section class="content">
+
+      <h2>Portal Introduction</h2>
+
+      <p>
+        The Advanced Public Distribution System (APDS) is a digital platform designed to improve transparency and efficiency in ration distribution.
+      </p>
+
+      <br>
+
+      <ul>
+        <li>✔ Helps citizens report issues related to ration distribution.</li>
+        <li>✔ Provides a transparent and user-friendly grievance system.</li>
+        <li>✔ Reduces the need to visit government offices physically.</li>
+        <li>✔ Improves monitoring of food distribution and stock management.</li>
+        <li>✔ Enables quick complaint tracking and status updates.</li>
+        <li>✔ Ensures fair and efficient service delivery.</li>
+      </ul>
+
+      <div class="stats-section">
+
+        <div class="stat-box">
+          <h3>25K+</h3>
+          <p>Registered Users</p>
+        </div>
+
+        <div class="stat-box">
+          <h3>12K+</h3>
+          <p>Complaints Resolved</p>
+        </div>
+
+        <div class="stat-box">
+          <h3>500+</h3>
+          <p>Distributors</p>
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- UPDATES -->
+    <aside class="updates" id="updates">
+
+      <h2>Latest Updates</h2>
+
+      <div class="update-card">
+        <h4>New Registration Open</h4>
+        <p>Online beneficiary registration is now available.</p>
+      </div>
+
+      <div class="update-card">
+        <h4>System Maintenance</h4>
+        <p>Portal maintenance scheduled this weekend.</p>
+      </div>
+
+      <div class="update-card">
+        <h4>Food Distribution Update</h4>
+        <p>Monthly ration distribution has started in all districts.</p>
+      </div>
+
+    </aside>
+
+  </section>
+
+  <!-- GALLERY -->
+  <section class="gallery-section container">
+
+    <h2>Portal Gallery</h2>
+
+    <div class="gallery">
+      <img src="img01.jpg" alt="gallery">
+      <img src="img02.jpg" alt="gallery">
+      <img src="img03.jpg" alt="gallery">
+      <img src="img04.jpg" alt="gallery">
+      <img src="img06.jpg" alt="gallery">
+    </div>
+
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+
+    <div class="footer-container container">
+
+      <div class="footer-box">
+        <h2>About APDS</h2>
+        <p>
+          APDS is a smart digital ration grievance and distribution platform designed to improve transparency and service delivery.
+        </p>
+      </div>
+
+      <div class="footer-box">
+        <h2>Contributors</h2>
+        <p>Adarsh Kumar</p>
+        <p>Aditya Kumar</p>
+        <p>Aditya Sharma</p>
+        <p>Aditya Thakur</p>
+      </div>
+
+      <div class="footer-box">
+        <h2>Quick Links</h2>
+        <p>Home</p>
+        <p>Login</p>
+        <p>Register</p>
+        <p>Statistics</p>
+      </div>
+
+      <div class="footer-box">
+        <h2>Contact</h2>
+        <p>apdsportal@gmail.com</p>
+        <p>+91 85488855585</p>
+        <p>+91 8548857854</p>
+      </div>
+
+    </div>
+
+    <div class="copyright">
+      © 2026 Advanced Public Distribution System | All Rights Reserved
+    </div>
+
+  </footer>
+
+</body>
+</html>

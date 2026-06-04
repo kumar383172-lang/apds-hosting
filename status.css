@@ -1,0 +1,81 @@
+body{
+    margin: 0;
+    font-family:Arial;
+
+}
+.Hero{
+    background:#064529;
+    color:white;
+    text-align:center;
+    padding: 50px;
+}
+
+.card{
+    background: white;
+    width: 300px;
+    margin:-30px auto;
+    padding:20px;
+    text-align:center;
+    border:1px solid gray;
+}
+input{
+    width:90%;
+    padding:10px;
+
+}
+button{
+    padding:10px;
+    background:green;
+    color:white;
+    bottom: none;
+}
+.status-box{
+    width:90%;
+    margin:40px auto ;
+    padding: 20px;
+
+    background: #e3a8fa;
+    border-radius: 12px;
+    display: none;
+}
+.status-box:hover{
+    box-shadow: 0 4px 8px black;
+     transition:1s;
+}
+.info{
+    display:flex;
+    padding:30px;
+}
+.card1{
+    width:50%;
+    border:2px solid black;
+    border-radius:10px;
+    margin:20px;
+    margin-left:20px;
+    padding:20px;
+
+}
+.card1:hover{
+    box-shadow: 0 8px 16px  black;
+    transition:1s;
+}
+.card2{
+    width:50%;
+    border:2px solid black;
+    border-radius:10px;
+    margin:20px;
+    margin-right: 20px;
+    padding:20px;
+}
+.card2:hover{
+    box-shadow: 0 8px 16px  black;
+    transition:1s;
+}
+.footer{
+    background-color:orange;
+    color:white;
+    text-align: center;
+    padding: 20px;
+    
+    
+}

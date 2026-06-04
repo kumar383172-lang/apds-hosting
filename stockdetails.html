@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>stock details admin</title>
+
+    <!--styles and fonts-->
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" >
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            text-decoration: none;
+        }
+        header{
+            margin-top: 1px;
+    background-color:#1B4332;
+    display: flex;
+    height: 80px;
+    width: 100%;
+    box-shadow: 4px 4px 4px #1B4332;
+    position: fixed;
+}
+.buttons{
+    
+   
+    margin-left: 75%;
+    
+}
+.buttons ul {
+    display: flex;
+    margin-top: 20px;
+    gap: 20px;
+    margin-left: auto;
+    list-style: none;
+    font-size: 20px;
+
+    
+}
+.buttons ul li a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    transition: background-color 0.5s ease;
+}
+.buttons ul li a:hover{
+    background-color: orange;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+.container{
+    display: flex;
+    height: auto;
+    
+}
+
+
+.details{
+    background-color: #1B4332;
+    width: 23%;
+    height:auto;
+    margin-left:0;
+    margin-bottom:2px;
+}
+.details ul{
+    text-decoration: none;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 20px;
+    gap: 30px;
+}
+
+
+.details ul li {
+    
+    color: white;
+    font-size: 25px;
+    font-weight: bold;
+}
+.details p{
+    font-size: 30px;
+    font-weight: bold;
+    color: #00ffa6;
+    text-align: center;
+    margin-top: 20px;
+    padding: 20px;}
+
+.inercontainer{
+    display: flex;
+    flex-direction: column;
+    width: 78%;
+    height: auto;
+}
+.main-content{
+
+    background-color: #eeff00;
+    color: rgb(255, 255, 255);
+    width: 98%;
+    height:80px;
+    margin-left:0px;
+    padding : 10px 10px 0px 10px;
+}
+.main-content ul{
+    list-style: none;
+    display: flex;
+    text-align: center;
+    gap: 20px;
+    font-size: 18px;
+}
+.main-content ul li{
+    color: rgb(254, 2, 2);
+    font-weight: bold;
+}
+
+.graphstable{
+    background-color: #f4f9f9;
+    display: flex;
+    width: 98%;
+    height: 70vh;
+    margin-left:0px;
+    margin-bottom:2px;
+    gap:10px;
+    padding : 10px 10px 0px 10px;
+}
+
+.footer-content{
+    background-color: #E67E22;
+    color: rgb(2, 2, 2);
+    text-align: center;
+    padding: 10px;
+    font-size: 14px;
+    font-weight: bold;
+    margin-top: 3px;
+}
+        </style>   
+        
+        
+<!--chart scripts-->
+        <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+
+        var data = google.visualization.arrayToDataTable([
+          ['Stock Status', 'Quantity'],
+          ['distributed',     10],
+          ['left',      8],
+            ['damaged',  1],
+            ['good',  6]
+         
+        ]);
+
+        var options = {
+          title: 'stock status'
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+
+        chart.draw(data, options);
+      }
+    </script>
+
+
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawVisualization);
+
+      function drawVisualization() {
+        // Some raw data (not necessarily accurate)
+        var data = google.visualization.arrayToDataTable([
+          ['Month', 'rice', 'wheat', 'gram', 'Pulses', 'oil', 'sugar'],
+          ['2025/10',  165,      938,         522,             998,           450,      614.6],
+          ['2025/11',  135,      1120,        599,             1268,          288,      682],
+          ['2025/12',  157,      1167,        587,             807,           397,      623],
+          ['2026/01',  139,      1110,        615,             968,           215,      609.4],
+          ['2026/02',  136,      691,         629,             1026,          366,      569.6]
+        ]);
+
+        var options = {
+          title : 'stock-dist overview(5 months)',
+          vAxis: {title: 'tonnes'},
+          hAxis: {title: 'Month'},
+          seriesType: 'bars',
+          series: {5: {type: 'line'}}
+        };
+
+        var chart = new google.visualization.ComboChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+      }
+    </script>
+
+
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+
+        var data = google.visualization.arrayToDataTable([
+          ['grains', 'tones'],
+          ['rice',     21],
+          ['wheat',      22],
+          ['gram',  16],
+          ['Pulses', 18],
+          ['oil',    7]
+        ]);
+
+        var options = {
+          title: 'grain stock this month'
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('piechart2'));
+
+        chart.draw(data, options);
+      }
+    </script>
+   
+<script>
+async function loadStockData() {
+    try {
+        const response = await fetch('stockdata.json');
+        const data = await response.json();
+
+        const stockList = document.getElementById('stocklist');
+        stockList.innerHTML = ""; // clear old data
+
+        data.stocks.forEach(item => {
+            const li = document.createElement('li');
+            li.textContent = `${item.name}: ${item.quantity} ${item.unit}`;
+            stockList.appendChild(li);
+        });
+
+    } catch (error) {
+        console.error("Error loading stock data:", error);
+    }
+}
+
+loadStockData();
+setInterval(loadStockData, 5000); // refresh every 5 sec
+</script>
+      
+
+
+
+</head>
+<body>
+    <!-- Header+Navigation -->
+     <header>
+        <div class="logo"><img src="logo.png" alt="Logo" style="height: 60px; width: 80px; margin:10px ;border-radius: 40%; "></div>
+        <div class="buttons">
+            <ul>
+                <li><a href="Home.html"><i class="home"></i> Home</a></li>
+                <li><a href="#"><i class="us"></i> About us</a></li>
+                <li><a href="admin.html"><i class="das"></i> Dashboard</a></li>
+            </ul>
+        </div>
+
+    </header>
+
+    <!--introducory image -->
+    <section class="images"><img src="PDS.jpg" alt="PDS Image" style="height: 300px; width: 100%; box-shadow: 0px 4px 8px rgba(71, 71, 71, 0.1);margin-top: 90px;"></section>
+    
+    <!--main content -->
+    <div class="container">
+        <!--side information panel-->
+    <aside class="details">
+        <p>Current Stock Details</p>
+        <ul id="stocklist">
+           <!--<li>Rice: 5000 quintals</li>
+            <li>Wheat: 3000 quintals</li>
+            <li>Sugar: 2000 quintals</li>
+            <li>Kerosene: 1000 liters</li>
+            <li>Gram: 1500 quintals</li>
+            <li>Pulses: 2000 quintals</li>-->
+        </ul>
+    </aside>
+
+
+    <!--detais and graphs-->
+    <div class="inercontainer">
+
+
+        <!--update details-->
+        <div class="main-content">
+            <ul>
+                <li>Last updated: 20th June 2024</li>
+                <li>Next update: 30th June 2024</li>
+                <li>total stock: 14500 quintals</li>
+                <li>stock distributed: 12000 quintals</li>
+                <li>excess stock: 2500 quintals</li>
+                <li>stock condition: Good / attacked by pests</li>
+            </ul>
+        </div>
+
+
+
+        <!--graphs and tables-->
+        <div class="graphstable">
+                <div id="piechart" style="margin-left:20px; width: 300px; height: 300px; border: 2px solid #000000; margin-top: 30px;"></div>
+             <div id="chart_div" style="width: 400px; height: 300px;border: 2px solid #000000; margin-top: 30px;"></div>
+            <div id="piechart2" style="width: 400px; height: 300px; border: 2px solid #000000; margin-top: 30px;"></div>
+        </div>
+    </div>
+    </div>
+
+
+
+    <!--footer-->
+    <footer>
+        <div class="footer-content">
+            <pre>&copy; 2026 . All rights reserved.
+            Developed by Group 54 IIT Patna,BS CS 2025-2029 Batch.
+ A project for the bringing transparency in the public distribution system of india and to make the administration of the system more efficient and effective.
+            </pre>
+            <pre> follow us on social media :
+ <a href="https://www.facebook.com/"><i class="fa-brands fa-facebook"></i></a>    <a href="https://www.instagram.com/"><i class="fa-brands fa-instagram"></i></a>     <a href="https://www.twitter.com/"><i class="fa-brands fa-twitter  "></i></a>
+ </pre>
+        </div>
+    </footer>
+    
+
+ 
+</body>
+</html> 

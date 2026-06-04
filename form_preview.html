@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Registration Preview</title>
+<link rel="stylesheet" href="form_preview.css">
+</head>
+
+<body>
+
+    <header class="header">
+        <h1>Advanced Public Distribution System</h1>
+        <p>Registration Preview</p>
+    </header>
+
+    <div class="container">
+
+        <!-- Personal Details -->
+        <div class="section">
+            <h2>Personal Details</h2>
+
+            <div class="preview-box">
+
+                <div class="item">
+                    <label>Aadhaar Number :</label>
+                    <span id="adhaar_number"></span>
+                </div><br>
+
+                <div class="item">
+                    <label>Ration Card Number :</label>
+                    <span id="RC_number"></span>
+                </div>
+
+                <div class="item">
+                    <label>First Name :</label>
+                    <span id="fname"></span>
+                </div>
+
+                <div class="item">
+                    <label>Middle Name :</label>
+                    <span id="mname"></span>
+                </div>
+
+                <div class="item">
+                    <label>Last Name :</label>
+                    <span id="lname"></span>
+                </div>
+
+                <div class="item">
+                    <label>Gender :</label>
+                    <span id="GENDER"></span>
+                </div><br>
+
+                <div class="item">
+                    <label>Date of Birth :</label>
+                    <span id="DOB"></span>
+                </div>
+
+                <div class="item">
+                    <label>Mobile Number :</label>
+                    <span id="Mobile_number"></span>
+                </div><br>
+
+                <div class="item">
+                    <label>Email :</label>
+                    <span id="Email"></span>
+                </div>
+
+                <div class="item">
+                    <label>Father's First Name :</label>
+                    <span id="ffname"></span>
+                </div>
+
+                <div class="item">
+                    <label>Father's Middle Name :</label>
+                    <span id="fmname"></span>
+                </div>
+
+                <div class="item">
+                    <label>Father's Last Name :</label>
+                    <span id="flname"></span>
+                </div>
+
+                <div class="item">
+                    <label>Mother's First Name :</label>
+                    <span id="mfname"></span>
+                </div>
+
+                <div class="item">
+                    <label>Mother's Middle Name :</label>
+                    <span id="mmname"></span>
+                </div>
+
+                <div class="item">
+                    <label>Mother's Last Name :</label>
+                    <span id="mlname"></span>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Identity Proofs -->
+        <div class="section">
+            <h2>Identity Proofs</h2>
+
+            <div class="preview-box">
+
+                <div class="item">
+                    <label>Name as Adhaar :</label>
+                    <span id="adhaar_n"></span>
+                </div>
+
+                <div class="item">
+                    <label>Name as Voter card :</label>
+                    <span id="Voter_n"></span>
+                </div>
+
+                <div class="item">
+                    <label>Name as PAN Card :</label>
+                    <span id="Pan_n"></span>
+                </div>
+
+                <div class="item">
+                    <label>Adhaar Number :</label>
+                    <span id="Adhaar_number"></span>
+                </div>
+
+                <div class="item">
+                    <label>Voter Number :</label>
+                    <span id="voter_number"></span>
+                </div>
+
+                <div class="item">
+                    <label>PAN Number :</label>
+                    <span id="pan_number"></span>
+                </div>
+
+            </div>
+        </div>
+
+
+        <!-- Address -->
+        <div class="section">
+            <h2>Address Details</h2>
+
+            <div class="preview-box">
+
+                <div class="item">
+                    <label>Country :</label>
+                    <span id="country"></span>
+                </div>
+
+                <div class="item">
+                    <label>State :</label>
+                    <span id="state"></span>
+                </div>
+
+                <div class="item">
+                    <label>District :</label>
+                    <span id="district"></span>
+                </div>
+
+                <div class="item">
+                    <label>Division :</label>
+                    <span id="division"></span>
+                </div>
+
+                <div class="item">
+                    <label>Sub-Division :</label>
+                    <span id="sub_division"></span>
+                </div>
+
+                <div class="item">
+                    <label>Police Station :</label>
+                    <span id="police_station"></span>
+                </div>
+
+                <div class="item">
+                    <label>Post Office :</label>
+                    <span id="post_office"></span>
+                </div>
+
+                <div class="item">
+                    <label>Local Body :</label>
+                    <span id="local_body"></span>
+                </div>
+
+                <div class="item">
+                    <label>Ward No :</label>
+                    <span id="ward_no"></span>
+                </div>
+
+                <div class="item">
+                    <label>Village :</label>
+                    <span id="village"></span>
+                </div>
+
+                <div class="item">
+                    <label>Pin Code :</label>
+                    <span id="pin_code"></span>
+                </div>
+
+                <div class="item">
+                    <label>Zip Code :</label>
+                    <span id="zip_code"></span>
+                </div>
+
+            </div>
+        </div>
+
+
+        <!-- Ration Card -->
+        <div class="section">
+            <h2>Ration Card Type</h2>
+
+            <div class="preview-box">
+
+                <div class="item">
+                    <label>Selected Card :</label>
+                    <span name="rc"></span>
+                </div>
+
+            </div>
+        </div>
+
+
+        <!-- Income & Category -->
+        <div class="section">
+            <h2>Income Details</h2>
+
+            <div class="preview-box">
+
+                <div class="item">
+                    <label>Profession :</label>
+                    <span id="profession"></span>
+                </div>
+
+                <div class="item">
+                    <label>Income from Profession :</label>
+                    <span id="income_prof"></span>
+                </div>
+
+                <div class="item">
+                    <label>Income from other sources :</label>
+                    <span id="income_other"></span>
+                </div>
+
+                <div class="item">
+                    <label>Total Annual Income :</label>
+                    <span id="total_income"></span>
+                </div>
+
+            </div>
+
+            <h2>Category</h2>
+
+            <div class="preview-box">
+
+                <div class="item">
+                    <label>Category :</label>
+                    <span id="category"></span>
+                </div>
+
+                <div class="item">
+                    <label>Cast :</label>
+                    <span id="cast"></span>
+                </div>
+
+                <div class="item">
+                    <label>sub-Cast :</label>
+                    <span id="sub_cast"></span>
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- Bank -->
+        <div class="section">
+            <h2>Bank Details</h2>
+
+            <div class="preview-box">
+
+                <div class="item">
+                    <label>Account Holder :</label>
+                    <span id="holder"></span>
+                </div>
+
+                <div class="item">
+                    <label>Bank Name :</label>
+                    <span id="bank"></span>
+                </div>
+
+                <div class="item">
+                    <label>Branch :</label>
+                    <span id="branch"></span>
+                </div>
+
+                <div class="item">
+                    <label>Account Number :</label>
+                    <span id="account"></span>
+                </div>
+
+                <div class="item">
+                    <label>IFSC :</label>
+                    <span id="ifsc"></span>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Family Members</h2>
+
+            <div>
+                <table>
+                <thead>
+                    <tr>
+                        <th>No.</th>
+                        <th>Name</th>
+                        <th>Age</th>
+                        <th>Relation</th>
+                    </tr>
+                </thead>
+
+                <tbody id="previewBody"></tbody>
+            </table>
+            </div>
+        </div>
+
+        <div class="buttons">
+            <button onclick="window.print()">Print</button>
+        </div>
+
+    </div>
+
+</body>
+
+<script>
+
+    //presonal details
+
+    document.getElementById("adhaar_number").innerText =
+    localStorage.getItem("adhaar_number");
+
+    document.getElementById("RC_number").innerText =
+    localStorage.getItem("RC_number");
+
+    document.getElementById("fname").innerText =
+    localStorage.getItem("fname");
+
+    document.getElementById("mname").innerText =
+    localStorage.getItem("mname");
+
+    document.getElementById("lname").innerText =
+    localStorage.getItem("lname");
+
+    document.getElementById("GENDER").innerText =
+    localStorage.getItem("GENDER");
+
+    document.getElementById("DOB").innerText =
+    localStorage.getItem("DOB");
+
+    document.getElementById("Mobile_number").innerText =
+    localStorage.getItem("Mobile_number");
+
+    document.getElementById("Email").innerText =
+    localStorage.getItem("Email");
+
+    document.getElementById("ffname").innerText =
+    localStorage.getItem("ffname");
+
+    document.getElementById("fmname").innerText =
+    localStorage.getItem("fmname");
+
+    document.getElementById("flname").innerText =
+    localStorage.getItem("flname");
+
+    document.getElementById("mfname").innerText =
+    localStorage.getItem("mfname");
+
+    document.getElementById("mmname").innerText =
+    localStorage.getItem("mmname");
+
+    document.getElementById("mlname").innerText =
+    localStorage.getItem("mlname");
+
+    // identity proof
+
+    document.getElementById("adhaar_n").innerText =
+    localStorage.getItem("adhaar_n");
+
+    document.getElementById("Voter_n").innerText =
+    localStorage.getItem("Voter_n");
+
+    document.getElementById("Pan_n").innerText =
+    localStorage.getItem("Pan_n");
+
+    document.getElementById("Adhaar_number").innerText =
+    localStorage.getItem("Adhaar_number");
+
+    document.getElementById("voter_number").innerText =
+    localStorage.getItem("voter_number");
+
+    document.getElementById("pan_number").innerText =
+    localStorage.getItem("pan_number");
+
+    // Address
+
+    document.getElementById("country").innerText =
+    localStorage.getItem("country");
+
+    document.getElementById("state").innerText =
+    localStorage.getItem("state");
+
+    document.getElementById("district").innerText =
+    localStorage.getItem("district");
+
+    document.getElementById("division").innerText =
+    localStorage.getItem("division");
+
+    document.getElementById("sub_division").innerText =
+    localStorage.getItem("sub_division");
+
+    document.getElementById("police_station").innerText =
+    localStorage.getItem("police_station");
+
+    document.getElementById("post_office").innerText =
+    localStorage.getItem("post_office");
+
+    document.getElementById("local_body").innerText =
+    localStorage.getItem("local_body");
+
+    document.getElementById("ward_no").innerText =
+    localStorage.getItem("ward_no");
+
+    document.getElementById("village").innerText =
+    localStorage.getItem("village");
+
+    document.getElementById("pin_code").innerText =
+    localStorage.getItem("pin_code");
+
+    document.getElementById("zip_code").innerText =
+    localStorage.getItem("zip_code");
+
+
+    // Ration Card Type
+
+
+    // Income & category
+
+    document.getElementById("profession").innerText =
+    localStorage.getItem("profession");
+
+    document.getElementById("income_prof").innerText =
+    localStorage.getItem("income_prof");
+
+    document.getElementById("income_other").innerText =
+    localStorage.getItem("income_other");
+
+    document.getElementById("total_income").innerText =
+    localStorage.getItem("total_income");
+
+    document.getElementById("category").innerText =
+    localStorage.getItem("category");
+
+    document.getElementById("cast").innerText =
+    localStorage.getItem("cast");
+
+    document.getElementById("sub_cast").innerText =
+    localStorage.getItem("sub_cast");
+
+
+    // Bank Details
+
+    document.getElementById("holder").innerText =
+    localStorage.getItem("holder");
+
+    document.getElementById("bank").innerText =
+    localStorage.getItem("bank");
+
+    document.getElementById("branch").innerText =
+    localStorage.getItem("branch");
+
+    document.getElementById("account").innerText =
+    localStorage.getItem("account");
+
+    document.getElementById("ifsc").innerText =
+    localStorage.getItem("ifsc");
+
+    // family Member Details
+
+    const data = JSON.parse(localStorage.getItem("familyMembers")) || [];
+
+    const previewBody =
+    document.getElementById("previewBody");
+
+    data.forEach((member,index)=>{
+
+    previewBody.innerHTML += `
+
+    <tr>
+
+    <td>${index+1}</td>
+
+    <td>${member.name}</td>
+
+    <td>${member.age}</td>
+
+    <td>${member.relation}</td>
+
+    </tr>
+
+    `;
+
+    });
+
+</script>
+</html>
+

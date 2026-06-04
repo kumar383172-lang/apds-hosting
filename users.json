@@ -1,0 +1,26 @@
+[
+  {
+    "id": "001",
+    "username": "aditya",
+    "email": "aditya@example.com",
+    "mobile": "9876543210",
+    "password": "12345",
+    "role": "admin"
+  },
+  {
+    "id": "002",
+    "username": "testuser",
+    "email": "test@example.com",
+    "mobile": "9123456780",
+    "password": "password",
+    "role": "beneficiary"
+  },
+  {
+    "id": "003",
+    "username": "distributor",
+    "email": "distributor@example.com",
+    "mobile": "9000000000",
+    "password": "distri123",
+    "role": "distributor"
+  }
+]

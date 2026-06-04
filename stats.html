@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>STATS | Advance Public Distribution System</title>
+
+<link rel="stylesheet" href="stats.css">
+
+<!-- Chart.js CDN -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+</head>
+
+<body>
+
+<header class="header">
+  <div>
+    <h1>APDS Dashboard</h1>
+    <p>Ration Distribution Statistics</p>
+  </div>
+  <a href="Home.html" class="home-btn">Home</a>
+</header>
+
+<div class="container">
+
+  <!-- TOP CARDS -->
+  <div class="cards">
+
+    <div class="card">
+      <h3>Admins</h3>
+      <p id="adminCount">0</p>
+    </div>
+
+    <div class="card">
+      <h3>Distributors</h3>
+      <p id="distributorCount">0</p>
+    </div>
+
+    <div class="card">
+      <h3>Beneficiaries</h3>
+      <p id="beneficiaryCount">0</p>
+    </div>
+
+  </div>
+
+  <!-- RATION STATS -->
+  <div class="cards">
+
+    <div class="card">
+      <h3>Total Ration</h3>
+      <p id="totalRation">0 kg</p>
+    </div>
+
+    <div class="card">
+      <h3>Distributed</h3>
+      <p id="distributed">0 kg</p>
+    </div>
+
+    <div class="card">
+      <h3>Remaining</h3>
+      <p id="remaining">0 kg</p>
+    </div>
+
+  </div>
+
+  <!-- COMPLAIN STATS -->
+   <div class="cards">
+
+    <div class="card">
+      <h3>Complaints</h3>
+      <p id="complaints">0</p>
+    </div>
+
+    <div class="card">
+      <h3>Complain Addressed</h3>
+      <p id="addressed">0</p>
+    </div>
+
+    <div class="card">
+      <h3>Under Review</h3>
+      <p id="under_review">0</p>
+    </div>
+
+  </div>
+
+
+  <!-- GRAPHS -->
+  <div class="charts">
+
+    <div class="chart-box">
+      <canvas id="rationChart"></canvas>
+    </div>
+
+    <div class="chart-box">
+      <canvas id="userChart"></canvas>
+      <canvas id="complaintChart"></canvas>
+    </div>
+
+  </div>
+
+</div>
+
+<footer class="footer">
+    <div class="container footer-grid">
+
+        <div>
+            <h3>About</h3>
+            <p>Statistics Dashboard for Accountablity.</p>
+        </div>
+
+        <div>
+            <h3>Links</h3>
+            <p>Home</p>
+        </div>
+
+        <div>
+            <h3>Connect with us</h3>
+            <span>adarsh5558@gmail.com</span><br>
+            <span>+91 85488855585</span> <span>,+91 8548857854</span>
+        </div>
+
+    </div>
+</footer>
+
+</body>
+
+<script>
+let data = JSON.parse(localStorage.getItem("apdsData"));
+
+// DEFAULT DATA (if nothing saved)
+let admins = data?.admins || 5;
+let distributors = data?.distributors || 12;
+let beneficiaries = data?.beneficiaries || 120;
+
+let totalRation = data?.totalRation || 10000;
+let distributed = data?.distributed || 6500;
+let remaining = totalRation - distributed;
+
+let compliants = data?.compliants || 22;
+let addressed = data?.addressed || 9;
+let under_review = compliants - addressed;
+
+
+// UPDATE UI
+document.getElementById("adminCount").innerText = admins;
+document.getElementById("distributorCount").innerText = distributors;
+document.getElementById("beneficiaryCount").innerText = beneficiaries;
+
+document.getElementById("totalRation").innerText = totalRation + " kg";
+document.getElementById("distributed").innerText = distributed + " kg";
+document.getElementById("remaining").innerText = remaining + " kg";
+
+document.getElementById("complaints").innerText = compliants;
+document.getElementById("addressed").innerText = addressed;
+document.getElementById("under_review").innerText = under_review;
+
+
+// 📊 RATION CHART
+new Chart(document.getElementById("rationChart"), {
+  type: 'pie',
+  data: {
+    labels: ["Distributed", "Remaining"],
+    datasets: [{
+      data: [distributed, remaining],
+      backgroundColor: ["green", "orange"]
+    }]
+  }
+});
+
+
+// 📊 USER CHART
+new Chart(document.getElementById("userChart"), {
+  type: 'bar',
+  data: {
+    labels: ["Admins", "Distributors", "Beneficiaries"],
+    datasets: [{
+      label: "User Count",
+      data: [admins, distributors, beneficiaries],
+      backgroundColor: ["blue", "purple", "teal"]
+    }]
+  }
+});
+
+
+// 📊 COMPLAIN CHART
+new Chart(document.getElementById("complaintChart"), {
+  type: 'bar',
+  data: {
+    labels: ["complaints", "addressed", "under_review"],
+    datasets: [{
+      label: "Complaints Data",
+      data: [compliants, addressed, under_review],
+      backgroundColor: ["red", "cyan", "brown"]
+    }]
+  }
+});
+</script>
+
+</html>

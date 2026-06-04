@@ -1,0 +1,10 @@
+{
+  "stocks": [
+    { "name": "Rice", "quantity": 5000, "unit": "quintals" },
+    { "name": "Wheat", "quantity": 3000, "unit": "quintals" },
+    { "name": "Sugar", "quantity": 2000, "unit": "quintals" },
+    { "name": "Kerosene", "quantity": 1000, "unit": "liters" },
+    { "name": "Gram", "quantity": 1500, "unit": "quintals" },
+    { "name": "Pulses", "quantity": 2000, "unit": "quintals" }
+  ]
+}

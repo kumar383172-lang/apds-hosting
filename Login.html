@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LOGIN | Advance Public Distribution System</title>
+    <link rel="stylesheet" href="Login.css">
+</head>
+
+<script>
+
+function showCard(cardId){
+
+    // hide all cards
+
+    document.querySelectorAll(".card").forEach(card=>{
+        card.classList.remove("active");
+    });
+
+    // show selected card
+
+    document.getElementById(cardId).classList.add("active");
+
+}
+
+// default open
+
+showCard("admin-card");
+
+</script>
+<body>
+
+<header class="header">
+    <div class="container header-content">
+        <h1>Advanced Public Distribution System</h1>
+        <div class="home-button">
+        <a href="Home.html" class="home-btn">Home</a>
+        <a href="form.html" class="home-btn">Register</a>
+        </div>
+    </div>
+</header>
+
+<section class="note container">
+    <p><b>Note:</b> Please select your role and login using valid credentials.</p>
+</section>
+
+<section class="center">
+<div class="center2">
+
+<div class="role-selector container">
+
+    <button onclick="showCard('admin-card')">
+        Admin
+    </button>
+
+    <button onclick="showCard('distributor-card')">
+        Distributor
+    </button>
+
+    <button onclick="showCard('beneficiary-card')">
+        Beneficiary
+    </button>
+
+</div>
+
+<main class="container login-grid">
+
+    <!-- ADMIN -->
+    <section class="card" id="admin-card">
+        <h2>Admin Login</h2>
+
+        <div class="info-box">
+            <p>Admin manages users and oversees system operations.</p>
+        </div>
+
+        <form>
+            
+            
+            <a href="loginpage.html" class="btn">Login</a>
+
+        </form>
+    </section>
+
+    <!-- DISTRIBUTOR -->
+    <section class="card" id="distributor-card">
+        <h2>Distributor Login</h2>
+
+        <div class="info-box">
+            <p>Distributor provides ration and manages beneficiary records.</p>
+        </div>
+
+        <form>
+            
+            <a href="loginpage.html" class="btn">Login</a>
+        </form>
+    </section>
+
+    <!-- BENEFICIARY -->
+    <section class="card" id="beneficiary-card">
+        <h2>Beneficiary Login</h2>
+
+        <div class="info-box">
+            <p>Beneficiary can check ration details and raise complaints.</p>
+        </div>
+
+        <form>
+            
+            <!--<button type="submit"><a href="demo2.html">Login</a></button>-->
+            <a href="loginpage.html" class="btn">Login</a>
+
+        </form>
+    </section>
+
+</main>
+</div>
+</section>
+
+<section class="video">
+    <video width=100% height="400px" controls autoplay muted>
+    <source src="demovedio.mp4" type="video/mp4">
+</video>
+</section>
+
+<footer class="footer">
+    <div class="container footer-grid">
+
+        <div>
+            <h3>About</h3>
+            <p>Ration grievance portal for transparency and efficiency.</p>
+        </div>
+
+        <div>
+            <h3>Links</h3>
+            <p>Home</p>
+            <p>Login</p>
+            <p>Sign Up</p>
+        </div>
+
+        <div>
+            <h3>Connect with us</h3>
+            <span>adarsh5558@gmail.com</span><br>
+            <span>+91 85488855585</span> <span>,+91 8548857854</span>
+        </div>
+
+    </div>
+</footer>
+
+</body>
+</html>
